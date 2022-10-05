@@ -1,4 +1,4 @@
-package des
+package no_des
 
 import (
 	"crypto/des"
