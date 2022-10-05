@@ -1,0 +1,1 @@
+fyne package -os android/arm64 -appID com.ddk.crypt
