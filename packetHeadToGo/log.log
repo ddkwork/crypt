@@ -1,6 +1,0 @@
-INFO trace   [2022-10-04 23:15:24]    --------- title --------- | ------------------ info ------------------ //runtime.doInit proc.go:6321
-INFO json    [2022-10-04 23:15:24]                              |  //packetHeadToGo.TestName packetHeadToGo_test.go:16
-head := map[string]string{}
-INFO trace   [2022-10-04 23:15:45]    --------- title --------- | ------------------ info ------------------ //runtime.doInit proc.go:6321
-INFO json    [2022-10-04 23:15:45]                              |  //packetHeadToGo.TestName packetHeadToGo_test.go:16
-head := map[string]string{}
