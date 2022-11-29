@@ -16,7 +16,7 @@ type (
 	}
 )
 
-func New() Interface { return &object{s: stream.NewNil()} }
+func New() Interface { return &object{s: stream.New()} }
 func (o *object) Sum(src string) *stream.Stream {
 	s := stream.NewString(src)
 	hash := md5.New()
