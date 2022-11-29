@@ -17,16 +17,16 @@ type (
 func New() Interface { return &object{} }
 func (o *object) Encode(src, key any) *stream.Stream {
 	s := stream.NewHexStringOrBytes(src)
-	if !s.SizeCheck() {
+	if !s.DesBlockSizeSizeCheck() {
 		return s
 	}
 	k := stream.NewHexStringOrBytes(key)
-	if !k.SizeCheck() {
+	if !k.DesBlockSizeSizeCheck() {
 		return k
 	}
 	block, err := des.NewCipher(k.Bytes())
 	if !mylog.Error(err) {
-		return stream.NewErrorInfo(err.Error())
+		return nil
 	}
 	dst := make([]byte, des.BlockSize)
 	block.Encrypt(dst, s.Bytes())
@@ -35,16 +35,16 @@ func (o *object) Encode(src, key any) *stream.Stream {
 
 func (o *object) Decode(dst, key any) *stream.Stream {
 	d := stream.NewHexStringOrBytes(dst)
-	if !d.SizeCheck() {
+	if !d.DesBlockSizeSizeCheck() {
 		return d
 	}
 	k := stream.NewHexStringOrBytes(key)
-	if !k.SizeCheck() {
+	if !k.DesBlockSizeSizeCheck() {
 		return k
 	}
 	block, err := des.NewCipher(k.Bytes())
 	if !mylog.Error(err) {
-		return stream.NewErrorInfo(err.Error())
+		return nil
 	}
 	src := make([]byte, des.BlockSize)
 	block.Decrypt(src, d.Bytes())
