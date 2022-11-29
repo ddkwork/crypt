@@ -89,13 +89,11 @@ func (o *object) do(Type crypto.Hash) *stream.Stream {
 		o.fnNewSha = func() hash.Hash { return crypto.SHA384.New() }
 	case crypto.SHA512:
 		o.fnNewSha = func() hash.Hash { return sha512.New() }
-	default:
-		return stream.NewErrorInfo("unknown Type of crypto.hash")
 	}
 	h2 := hmac.New(o.fnNewSha, o.key.Bytes())
 	_, err := h2.Write(o.src.Bytes())
 	if !mylog.Error(err) {
-		return stream.NewErrorInfo(err.Error())
+		return nil
 	}
 	return stream.NewBytes(h2.Sum(nil))
 }

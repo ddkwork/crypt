@@ -13,11 +13,11 @@ type (
 
 func (o *object) Encrypt(src, key any) (dst *stream.Stream) {
 	s := stream.NewHexStringOrBytes(src)
-	if !s.SizeCheck() {
+	if !s.DesBlockSizeSizeCheck() {
 		return s
 	}
 	k := stream.NewHexStringOrBytes(key)
-	if !k.SizeCheck() {
+	if !k.DesBlockSizeSizeCheck() {
 		return k
 	}
 	subkeys := expand(k.Bytes())
@@ -26,11 +26,11 @@ func (o *object) Encrypt(src, key any) (dst *stream.Stream) {
 
 func (o *object) Decrypt(src, key any) (dst *stream.Stream) {
 	d := stream.NewHexStringOrBytes(src)
-	if !d.SizeCheck() {
+	if !d.DesBlockSizeSizeCheck() {
 		return d
 	}
 	k := stream.NewHexStringOrBytes(key)
-	if !k.SizeCheck() {
+	if !k.DesBlockSizeSizeCheck() {
 		return k
 	}
 	subkeys := expand(k.Bytes())
