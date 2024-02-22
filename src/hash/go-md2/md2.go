@@ -88,7 +88,6 @@ func (d *digest) Write(p []byte) (nn int, err error) {
 	if d.nx > 0 {
 		n := uint8(len(p))
 
-		var i uint8
 		// try to copy the rest n bytes free of the buffer into the buffer
 		// then hash the buffer
 
@@ -96,7 +95,7 @@ func (d *digest) Write(p []byte) (nn int, err error) {
 			n = _Chunk - d.nx
 		}
 
-		for i = 0; i < n; i++ {
+		for i := range n {
 			// copy n bytes to the buffer
 			d.x[d.nx+i] = p[i]
 		}
