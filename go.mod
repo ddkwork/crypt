@@ -3,7 +3,7 @@ module github.com/ddkwork/crypt
 go 1.22.0
 
 require (
-	cogentcore.org/core v0.0.7-0.20240225011527-4851878d7879
+	cogentcore.org/core v0.0.7-0.20240225091704-35f09866eefb
 	github.com/ddkwork/golibrary v0.0.0-20240224190254-565479ef0fa2
 	github.com/dop251/goja v0.0.0-20231027120936-b396bb4c349d
 	github.com/stretchr/testify v1.8.4
