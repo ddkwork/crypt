@@ -91,33 +91,78 @@ func main() {
 	view.SetStruct(info)
 	newFrame := gi.NewFrame(newTab)
 	r := rsa.New()
-	widget.NewButton(newFrame).SetText("pai").SetTooltip("密钥对").OnClick(func(e events.Event) {
-	})
-	widget.NewButton(newFrame).SetText("encode").SetTooltip("加密 C=M^e(mod n)").OnClick(func(e events.Event) {
-		encrypt := r.Encrypt(stream.New(info.M), info.N, info.E)
-		if encrypt == nil {
-			return
+
+	//widget.NewButton(newFrame).SetText("pai").SetTooltip("密钥对").OnClick(func(e events.Event) {
+	//})
+	//widget.NewButton(newFrame).SetText("encode").SetTooltip("加密 C=M^e(mod n)").OnClick(func(e events.Event) {
+	//	encrypt := r.Encrypt(stream.New(info.M), info.N, info.E)
+	//	if encrypt == nil {
+	//		return
+	//	}
+	//	info.C = string(encrypt.HexStringUpper())
+	//	view.SetStruct(info)
+	//})
+	//widget.NewButton(newFrame).SetText("decode").SetTooltip("解密 M=C^d(mod n)").OnClick(func(e events.Event) {
+	//	decrypt := r.Decrypt(stream.NewHexString(stream.HexString(info.C)), info.N, info.E, info.D)
+	//	if decrypt == nil {
+	//		return
+	//	}
+	//	info.M = decrypt.String()
+	//	view.SetStruct(info)
+	//})
+	//widget.NewButton(newFrame).SetText("calcD").SetTooltip("计算私钥(D)").OnClick(func(e events.Event) {
+	//	calcD := r.CalcD(info.E, info.P, info.Q)
+	//	if calcD == nil {
+	//		return
+	//	}
+	//	info.D = string(calcD.HexStringUpper())
+	//	view.SetStruct(info)
+	//})
+	//widget.NewButton(newFrame).SetText("FactorizationN").SetTooltip("因式分解(N)").OnClick(func(e events.Event) {
+	//})
+
+	switches := gi.NewSwitches(newFrame).SetType(gi.SwitchSegmentedButton).SetMutex(true).
+		SetItems(
+			"gen pai",
+			"encode",
+			"decode",
+			"calcD",
+			"FactorizationN",
+		).
+		SetTooltips(
+			"生成密钥对",
+			"加密 C=M^e(mod n)",
+			"解密 M=C^d(mod n)",
+			"计算私钥(D)",
+			"因式分解(N)",
+		)
+	//gi.NewSpace(newFrame)
+	switches.OnChange(func(e events.Event) {
+		switch switches.SelectedItem() {
+		case "gen pai":
+		case "encode":
+			encrypt := r.Encrypt(stream.New(info.M), info.N, info.E)
+			if encrypt == nil {
+				return
+			}
+			info.C = string(encrypt.HexStringUpper())
+			view.SetStruct(info)
+		case "decode":
+			decrypt := r.Decrypt(stream.NewHexString(stream.HexString(info.C)), info.N, info.E, info.D)
+			if decrypt == nil {
+				return
+			}
+			info.M = decrypt.String()
+			view.SetStruct(info)
+		case "calcD":
+			calcD := r.CalcD(info.E, info.P, info.Q)
+			if calcD == nil {
+				return
+			}
+			info.D = string(calcD.HexStringUpper())
+			view.SetStruct(info)
+		case "FactorizationN":
 		}
-		info.C = string(encrypt.HexStringUpper())
-		view.SetStruct(info)
-	})
-	widget.NewButton(newFrame).SetText("decode").SetTooltip("解密 M=C^d(mod n)").OnClick(func(e events.Event) {
-		decrypt := r.Decrypt(stream.NewHexString(stream.HexString(info.C)), info.N, info.E, info.D)
-		if decrypt == nil {
-			return
-		}
-		info.M = decrypt.String()
-		view.SetStruct(info)
-	})
-	widget.NewButton(newFrame).SetText("calcD").SetTooltip("计算私钥(D)").OnClick(func(e events.Event) {
-		calcD := r.CalcD(info.E, info.P, info.Q)
-		if calcD == nil {
-			return
-		}
-		info.D = string(calcD.HexStringUpper())
-		view.SetStruct(info)
-	})
-	widget.NewButton(newFrame).SetText("calcN").SetTooltip("因式分解(N)").OnClick(func(e events.Event) {
 	})
 
 	newTabs.NewTab("ecc")
