@@ -1,6 +1,7 @@
 package md5
 
 import (
+	"github.com/ddkwork/golibrary/safeType"
 	"testing"
 
 	"github.com/stretchr/testify/assert"
@@ -9,7 +10,7 @@ import (
 func TestMD5(t *testing.T) {
 	md5 := New()
 	sum := md5.Sum("DiskGetor")
-	assert.Equal(t, "3416eb58035074b9c53873316d364f2f", sum.HexString())
+	assert.Equal(t, safeType.HexString("3416eb58035074b9c53873316d364f2f"), sum.HexString())
 	sum2 := md5.Sum2("DiskGetor")
-	assert.Equal(t, "3416eb58035074b9c53873316d364f2f", sum2.HexString())
+	assert.Equal(t, safeType.HexString("3416eb58035074b9c53873316d364f2f"), sum2.HexString())
 }

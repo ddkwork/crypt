@@ -2,10 +2,11 @@ package des
 
 import (
 	"github.com/ddkwork/golibrary/mylog"
+	"github.com/ddkwork/golibrary/safeType"
 	"github.com/ddkwork/golibrary/stream"
 )
 
-func Encrypt[T stream.BinaryType](src, key T) (dst *stream.Stream) {
+func Encrypt[T safeType.BinaryType](src, key T) (dst *stream.Stream) {
 	s := stream.New(src)
 	k := stream.New(key)
 	if !s.CheckDesBlockSize() {
@@ -18,7 +19,7 @@ func Encrypt[T stream.BinaryType](src, key T) (dst *stream.Stream) {
 	return stream.New(des_encrypt(s.Bytes(), subKeys))
 }
 
-func Decrypt[T stream.BinaryType](src, key T) (dst *stream.Stream) {
+func Decrypt[T safeType.BinaryType](src, key T) (dst *stream.Stream) {
 	s := stream.New(src)
 	k := stream.New(key)
 	if !s.CheckDesBlockSize() {

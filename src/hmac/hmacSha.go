@@ -6,6 +6,7 @@ import (
 	"crypto/sha1"
 	"crypto/sha256"
 	"crypto/sha512"
+	"github.com/ddkwork/golibrary/safeType"
 	"hash"
 
 	"github.com/ddkwork/golibrary/mylog"
@@ -14,11 +15,11 @@ import (
 
 type (
 	Interface interface {
-		HmacSha1(src string, key stream.HexString) *stream.Stream
-		HmacSha224(src string, key stream.HexString) *stream.Stream
-		HmacSha256(src string, key stream.HexString) *stream.Stream
-		HmacSha384(src string, key stream.HexString) *stream.Stream
-		HmacSha512(src string, key stream.HexString) *stream.Stream
+		HmacSha1(src string, key safeType.HexString) *stream.Stream
+		HmacSha224(src string, key safeType.HexString) *stream.Stream
+		HmacSha256(src string, key safeType.HexString) *stream.Stream
+		HmacSha384(src string, key safeType.HexString) *stream.Stream
+		HmacSha512(src string, key safeType.HexString) *stream.Stream
 	}
 	object struct {
 		src      *stream.Stream
@@ -37,41 +38,41 @@ func New() Interface {
 	}
 }
 
-func (o *object) Check(src string, key stream.HexString) (ok bool) {
+func (o *object) Check(src string, key safeType.HexString) (ok bool) {
 	o.src = stream.New(src)
 	o.key = stream.New(key)
 	return true
 }
 
-func (o *object) HmacSha1(src string, key stream.HexString) *stream.Stream {
+func (o *object) HmacSha1(src string, key safeType.HexString) *stream.Stream {
 	if !o.Check(src, key) {
 		return o.err
 	}
 	return o.do(crypto.SHA1)
 }
 
-func (o *object) HmacSha224(src string, key stream.HexString) *stream.Stream {
+func (o *object) HmacSha224(src string, key safeType.HexString) *stream.Stream {
 	if !o.Check(src, key) {
 		return o.err
 	}
 	return o.do(crypto.SHA224)
 }
 
-func (o *object) HmacSha256(src string, key stream.HexString) *stream.Stream {
+func (o *object) HmacSha256(src string, key safeType.HexString) *stream.Stream {
 	if !o.Check(src, key) {
 		return o.err
 	}
 	return o.do(crypto.SHA256)
 }
 
-func (o *object) HmacSha384(src string, key stream.HexString) *stream.Stream {
+func (o *object) HmacSha384(src string, key safeType.HexString) *stream.Stream {
 	if !o.Check(src, key) {
 		return o.err
 	}
 	return o.do(crypto.SHA384)
 }
 
-func (o *object) HmacSha512(src string, key stream.HexString) *stream.Stream {
+func (o *object) HmacSha512(src string, key safeType.HexString) *stream.Stream {
 	if !o.Check(src, key) {
 		return o.err
 	}

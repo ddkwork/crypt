@@ -1,20 +1,20 @@
 package aes
 
 import (
+	"github.com/ddkwork/golibrary/safeType"
 	"testing"
 
-	"github.com/ddkwork/golibrary/stream"
 	"github.com/stretchr/testify/assert"
 )
 
 func TestAes(t *testing.T) {
-	src := stream.HexString("1122334455667788")
-	key := stream.HexString("1122334455667788")
+	src := safeType.HexString("1122334455667788")
+	key := safeType.HexString("1122334455667788")
 	dst := Encrypt(src, key)
-	assert.Equal(t, stream.HexString("6df46f5c40d62cd9889fa57d698754e4"), dst.HexString())
+	assert.Equal(t, safeType.HexString("6df46f5c40d62cd9889fa57d698754e4"), dst.HexString())
 
 	d := Decrypt(dst.HexString(), key)
-	assert.Equal(t, stream.HexString("11223344556677880000000000000000"), d.HexString())
+	assert.Equal(t, safeType.HexString("11223344556677880000000000000000"), d.HexString())
 }
 
 // TestMarshal the AES implementation
