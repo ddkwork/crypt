@@ -206,7 +206,7 @@ func main() {
 			HmacSha384: string(h.HmacSha384(hmacData.Src, safeType.HexString(hmacData.Key)).HexString()),
 			HmacSha512: string(h.HmacSha512(hmacData.Src, safeType.HexString(hmacData.Key)).HexString()),
 		}
-		HmacStructView.UpdateFields()
+		HmacStructView.Update()
 	})
 
 	type HashData struct {
@@ -246,7 +246,7 @@ func main() {
 			Sha512: hash.Sha512(src),
 		}
 		mylog.Struct(hashData)
-		hashStructView.UpdateFields()
+		hashStructView.Update()
 	})
 
 	Encoding := tabs.NewTab("Encoding").SetTooltip("编码")
