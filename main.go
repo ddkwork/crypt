@@ -196,7 +196,6 @@ func main() {
 	}
 	HmacStructView := giv.NewStructView(hashTab.NewTab("Hmac")).SetStruct(hmacData)
 	HmacStructView.OnInput(func(e events.Event) {
-		start := HmacStructView.UpdateStart()
 		h := hmac.New()
 		*hmacData = HmacData{
 			Src:        hmacData.Src,
@@ -208,7 +207,6 @@ func main() {
 			HmacSha512: string(h.HmacSha512(hmacData.Src, safeType.HexString(hmacData.Key)).HexString()),
 		}
 		HmacStructView.UpdateFields()
-		HmacStructView.UpdateEndRender(start)
 	})
 
 	type HashData struct {
@@ -235,7 +233,6 @@ func main() {
 	}
 	hashStructView := giv.NewStructView(hashTab.NewTab("hash")).SetStruct(hashData)
 	hashStructView.OnInput(func(e events.Event) {
-		start := hashStructView.UpdateStart()
 		src := hashData.Src
 		*hashData = HashData{
 			Src:    src,
@@ -250,8 +247,6 @@ func main() {
 		}
 		mylog.Struct(hashData)
 		hashStructView.UpdateFields()
-		hashStructView.UpdateEndLayout(start)
-		// hashStructView.UpdateEndRender(start)
 	})
 
 	Encoding := tabs.NewTab("Encoding").SetTooltip("编码")
