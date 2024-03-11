@@ -1,8 +1,9 @@
 package hmac
 
 import (
-	"github.com/ddkwork/golibrary/safeType"
 	"testing"
+
+	"github.com/ddkwork/golibrary/safeType"
 
 	"github.com/stretchr/testify/assert"
 )

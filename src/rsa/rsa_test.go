@@ -3,11 +3,12 @@ package rsa
 import (
 	"encoding/hex"
 	"fmt"
-	"github.com/ddkwork/golibrary/safeType"
 	"math/big"
 	"math/rand"
 	"testing"
 	"time"
+
+	"github.com/ddkwork/golibrary/safeType"
 
 	"github.com/ddkwork/golibrary/mylog"
 	"github.com/ddkwork/golibrary/stream"

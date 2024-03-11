@@ -2,8 +2,9 @@ package main
 
 import (
 	_ "embed"
-	"github.com/ddkwork/golibrary/safeType"
 	"strings"
+
+	"github.com/ddkwork/golibrary/safeType"
 
 	"cogentcore.org/core/events"
 	"cogentcore.org/core/gi"
@@ -137,7 +138,7 @@ func main() {
 			"计算私钥(D)",
 			"因式分解(N)",
 		)
-	//gi.NewSpace(newFrame)
+	// gi.NewSpace(newFrame)
 	switches.OnChange(func(e events.Event) {
 		switch switches.SelectedItem() {
 		case "gen pai":
