@@ -1,13 +1,13 @@
 module github.com/ddkwork/crypt
 
-go 1.22
+go 1.22.1
 
 require (
-	cogentcore.org/core v0.0.8-0.20240309213453-422cbc2cd1f1
-	github.com/ddkwork/golibrary v0.0.0-20240311060313-28c000994697
+	cogentcore.org/core v0.0.8-0.20240312041954-1380c137a49a
+	github.com/ddkwork/golibrary v0.0.0-20240312042006-2522fcd1f459
 	github.com/dop251/goja v0.0.0-20231027120936-b396bb4c349d
-	github.com/stretchr/testify v1.8.4
-	golang.org/x/crypto v0.19.0
+	github.com/stretchr/testify v1.9.0
+	golang.org/x/crypto v0.21.0
 )
 
 require (
@@ -45,13 +45,12 @@ require (
 	github.com/pelletier/go-toml/v2 v2.1.2-0.20240227203013-2b69615b5d55 // indirect
 	github.com/pmezard/go-difflib v1.0.1-0.20181226105442-5d4384ee4fb2 // indirect
 	github.com/rivo/uniseg v0.4.7 // indirect
-	github.com/rogpeppe/go-internal v1.12.0 // indirect
 	github.com/zzl/go-win32api/v2 v2.1.0 // indirect
 	golang.org/x/exp v0.0.0-20240222234643-814bf88cf225 // indirect
 	golang.org/x/image v0.15.0 // indirect
 	golang.org/x/mod v0.15.0 // indirect
-	golang.org/x/net v0.21.0 // indirect
-	golang.org/x/sys v0.17.0 // indirect
+	golang.org/x/net v0.22.0 // indirect
+	golang.org/x/sys v0.18.0 // indirect
 	golang.org/x/text v0.14.0 // indirect
 	golang.org/x/tools v0.18.0 // indirect
 	gopkg.in/yaml.v3 v3.0.1 // indirect
