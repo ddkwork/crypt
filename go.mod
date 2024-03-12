@@ -1,9 +1,9 @@
 module github.com/ddkwork/crypt
 
-go 1.22.1
+go 1.22
 
 require (
-	cogentcore.org/core v0.0.8-0.20240312041954-1380c137a49a
+	cogentcore.org/core v0.0.8-0.20240312043521-bdafc24c3306
 	github.com/ddkwork/golibrary v0.0.0-20240312042006-2522fcd1f459
 	github.com/dop251/goja v0.0.0-20231027120936-b396bb4c349d
 	github.com/stretchr/testify v1.9.0
@@ -24,7 +24,7 @@ require (
 	github.com/dlclark/regexp2 v1.10.0 // indirect
 	github.com/fatih/color v1.16.0 // indirect
 	github.com/fsnotify/fsnotify v1.7.0 // indirect
-	github.com/go-gl/glfw/v3.3/glfw v0.0.0-20240118000515-a250818d05e3 // indirect
+	github.com/go-gl/glfw/v3.3/glfw v0.0.0-20240307211618-a69d953ea142 // indirect
 	github.com/go-sourcemap/sourcemap v2.1.3+incompatible // indirect
 	github.com/goki/freetype v1.0.5 // indirect
 	github.com/goki/vulkan v1.0.7 // indirect
