@@ -125,18 +125,11 @@ func main() {
 
 	switches := gi.NewSwitches(newFrame).SetType(gi.SwitchSegmentedButton).SetMutex(true).
 		SetItems(
-			"gen pai",
-			"encode",
-			"decode",
-			"calcD",
-			"FactorizationN",
-		).
-		SetTooltips(
-			"生成密钥对",
-			"加密 C=M^e(mod n)",
-			"解密 M=C^d(mod n)",
-			"计算私钥(D)",
-			"因式分解(N)",
+			gi.SwitchItem{Label: "gen pai", Tooltip: "生成密钥对"},
+			gi.SwitchItem{Label: "encode", Tooltip: "加密 C=M^e(mod n)"},
+			gi.SwitchItem{Label: "decode", Tooltip: "解密 M=C^d(mod n)"},
+			gi.SwitchItem{Label: "calcD", Tooltip: "计算私钥(D)"},
+			gi.SwitchItem{Label: "FactorizationN", Tooltip: "因式分解(N)"},
 		)
 	// gi.NewSpace(newFrame)
 	switches.OnChange(func(e events.Event) {
