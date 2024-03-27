@@ -3,8 +3,8 @@ module github.com/ddkwork/crypt
 go 1.22
 
 require (
-    cogentcore.org/core v0.0.9
-    github.com/ddkwork/golibrary  v0.0.0-20240321190600-4773d14981ae
+	cogentcore.org/core v0.0.9
+	github.com/ddkwork/golibrary v0.0.0-20240327081416-5ed3cf0edba2
 	github.com/dop251/goja v0.0.0-20240220182346-e401ed450204
 	github.com/stretchr/testify v1.9.0
 	golang.org/x/crypto v0.21.0
@@ -46,7 +46,7 @@ require (
 	github.com/pmezard/go-difflib v1.0.1-0.20181226105442-5d4384ee4fb2 // indirect
 	github.com/rivo/uniseg v0.4.7 // indirect
 	github.com/zzl/go-win32api/v2 v2.1.0 // indirect
-	golang.org/x/exp v0.0.0-20240318143956-a85f2c67cd81 // indirect
+	golang.org/x/exp v0.0.0-20240325151524-a685a6edb6d8 // indirect
 	golang.org/x/image v0.15.0 // indirect
 	golang.org/x/mod v0.16.0 // indirect
 	golang.org/x/net v0.22.0 // indirect
