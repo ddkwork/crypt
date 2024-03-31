@@ -4,7 +4,7 @@ go 1.22
 
 require (
 	cogentcore.org/core v0.0.10-0.20240330171712-17511011859c
-	github.com/ddkwork/golibrary v0.0.0-20240331135257-ac73fadf23f5
+	github.com/ddkwork/golibrary v0.0.0-20240331150634-b64c34ec4079
 	github.com/dop251/goja v0.0.0-20240220182346-e401ed450204
 	github.com/stretchr/testify v1.9.0
 	golang.org/x/crypto v0.21.0
