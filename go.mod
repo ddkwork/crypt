@@ -6,7 +6,7 @@ toolchain go1.22.2
 
 require (
 	cogentcore.org/core v0.0.10-0.20240330171712-17511011859c
-	github.com/ddkwork/golibrary v0.0.0-20240416171652-2cc7e847e256
+	github.com/ddkwork/golibrary v0.0.0-20240416180436-eff04b20ce82
 	github.com/dop251/goja v0.0.0-20240220182346-e401ed450204
 	github.com/stretchr/testify v1.9.0
 	golang.org/x/crypto v0.22.0
@@ -52,6 +52,7 @@ require (
 	github.com/muesli/termenv v0.15.2 // indirect
 	github.com/pelletier/go-toml/v2 v2.2.0 // indirect
 	github.com/pmezard/go-difflib v1.0.1-0.20181226105442-5d4384ee4fb2 // indirect
+	github.com/richardwilkes/toolbox v1.110.0 // indirect
 	github.com/rivo/uniseg v0.4.7 // indirect
 	github.com/zzl/go-win32api/v2 v2.1.0 // indirect
 	golang.org/x/exp v0.0.0-20240409090435-93d18d7e34b8 // indirect
