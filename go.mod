@@ -6,7 +6,7 @@ toolchain go1.22.2
 
 require (
 	cogentcore.org/core v0.0.10-0.20240330171712-17511011859c
-	github.com/ddkwork/golibrary v0.0.0-20240416150432-c3f59f187df4
+	github.com/ddkwork/golibrary v0.0.0-20240416171652-2cc7e847e256
 	github.com/dop251/goja v0.0.0-20240220182346-e401ed450204
 	github.com/stretchr/testify v1.9.0
 	golang.org/x/crypto v0.22.0
