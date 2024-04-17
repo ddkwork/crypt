@@ -6,7 +6,7 @@ toolchain go1.22.2
 
 require (
 	cogentcore.org/core v0.0.10-0.20240330171712-17511011859c
-	github.com/ddkwork/golibrary v0.0.0-20240417045944-328375837a50
+	github.com/ddkwork/golibrary v0.0.0-20240417094556-601f5e6bbb9a
 	github.com/dop251/goja v0.0.0-20240220182346-e401ed450204
 	github.com/stretchr/testify v1.9.0
 	golang.org/x/crypto v0.22.0
@@ -35,6 +35,7 @@ require (
 	github.com/go-sourcemap/sourcemap v2.1.4+incompatible // indirect
 	github.com/goki/freetype v1.0.5 // indirect
 	github.com/goki/vulkan v1.0.7 // indirect
+	github.com/google/go-cmp v0.6.0 // indirect
 	github.com/google/pprof v0.0.0-20240409012703-83162a5b38cd // indirect
 	github.com/google/uuid v1.6.0 // indirect
 	github.com/gorilla/css v1.0.1 // indirect
@@ -64,4 +65,5 @@ require (
 	golang.org/x/text v0.14.0 // indirect
 	golang.org/x/tools v0.20.0 // indirect
 	gopkg.in/yaml.v3 v3.0.1 // indirect
+	mvdan.cc/gofumpt v0.6.0 // indirect
 )
