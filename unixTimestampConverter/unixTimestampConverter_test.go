@@ -18,7 +18,7 @@ func TestName(t *testing.T) {
 
 func TestJs(t *testing.T) {
 	runtime := goja.New()
-	mylog.CheckFuncReturn(runtime.RunString(jsBody))
+	mylog.Check(runtime.RunString(jsBody))
 	var fn func(string) string
 	if !mylog.Error(runtime.ExportTo(runtime.Get("timestamp_to_date"), &fn)) {
 		return
