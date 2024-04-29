@@ -3,8 +3,9 @@ package unixTimestampConverter
 import (
 	"testing"
 
-	"github.com/ddkwork/golibrary/mylog"
 	"github.com/dop251/goja"
+
+	"github.com/ddkwork/golibrary/mylog"
 )
 
 func TestName(t *testing.T) {
@@ -17,9 +18,7 @@ func TestName(t *testing.T) {
 
 func TestJs(t *testing.T) {
 	runtime := goja.New()
-	if !mylog.Error2(runtime.RunString(jsBody)) {
-		return
-	}
+	mylog.CheckFuncReturn(runtime.RunString(jsBody))
 	var fn func(string) string
 	if !mylog.Error(runtime.ExportTo(runtime.Get("timestamp_to_date"), &fn)) {
 		return

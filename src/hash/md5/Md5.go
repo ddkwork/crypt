@@ -21,9 +21,7 @@ func New() Interface { return &object{s: stream.New("")} }
 func (o *object) Sum(src string) *stream.Stream {
 	s := stream.New(src)
 	hash := md5.New()
-	if !mylog.Error2(hash.Write(s.Bytes())) {
-		return nil
-	}
+	mylog.CheckFuncReturn(hash.Write(s.Bytes()))
 	return stream.New(hash.Sum(nil))
 }
 

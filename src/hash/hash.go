@@ -5,10 +5,11 @@ import (
 	"hash"
 	"io"
 
+	"golang.org/x/crypto/md4"
+
 	"github.com/ddkwork/crypt/src/hash/go-md2"
 	"github.com/ddkwork/golibrary/mylog"
 	"github.com/ddkwork/golibrary/stream"
-	"golang.org/x/crypto/md4"
 )
 
 const MD2 crypto.Hash = 999
@@ -46,8 +47,6 @@ func setHash(src string, kind crypto.Hash) string {
 }
 
 func setSum(src string, hash hash.Hash) string {
-	if !mylog.Error2(io.WriteString(hash, src)) {
-		return mylog.Reason()
-	}
+	mylog.CheckFuncReturn(io.WriteString(hash, src))
 	return string(stream.New(hash.Sum(nil)).HexString())
 }
