@@ -5,8 +5,9 @@ import (
 	"strconv"
 	"time"
 
-	"github.com/ddkwork/golibrary/mylog"
 	"github.com/dop251/goja"
+
+	"github.com/ddkwork/golibrary/mylog"
 )
 
 //go:embed time.js
@@ -38,10 +39,7 @@ func (o *object) FromIntegerByJS(hexTimeStr string) string {
 }
 
 func (o *object) FromBaseWith64Bit(hexTimeStr string, base int) string {
-	integerTime, err := strconv.ParseInt(hexTimeStr, base, 64)
-	if !mylog.Error(err) {
-		return err.Error()
-	}
+	integerTime := mylog.Check(strconv.ParseInt(hexTimeStr, base, 64)).(int64)
 	integerTime /= 1000
 	unixMicro := time.Unix(integerTime, 0)
 	return unixMicro.Format(timeTemplate1)

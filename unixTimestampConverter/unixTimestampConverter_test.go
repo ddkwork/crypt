@@ -20,9 +20,7 @@ func TestJs(t *testing.T) {
 	runtime := goja.New()
 	mylog.Check(runtime.RunString(jsBody))
 	var fn func(string) string
-	if !mylog.Error(runtime.ExportTo(runtime.Get("timestamp_to_date"), &fn)) {
-		return
-	}
+	mylog.Check(runtime.ExportTo(runtime.Get("timestamp_to_date"), &fn))
 	s := fn("1634662111")
 	println(s)
 }

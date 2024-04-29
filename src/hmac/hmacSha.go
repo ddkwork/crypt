@@ -94,9 +94,6 @@ func (o *object) do(Type crypto.Hash) *stream.Stream {
 		o.fnNewSha = func() hash.Hash { return sha512.New() }
 	}
 	h2 := hmac.New(o.fnNewSha, o.key.Bytes())
-	_, err := h2.Write(o.src.Bytes())
-	if !mylog.Error(err) {
-		return nil
-	}
+	mylog.Check(h2.Write(o.src.Bytes()))
 	return stream.New(h2.Sum(nil))
 }
