@@ -1,20 +1,23 @@
 module github.com/ddkwork/crypt
 
-go 1.22.1
-
-toolchain go1.22.2
+go 1.22.2
 
 require (
 	cogentcore.org/core v0.0.10-0.20240330171712-17511011859c
-	github.com/ddkwork/golibrary v0.0.0-20240418080933-af0c86bab931
+	github.com/ddkwork/golibrary v0.0.0-20240430085019-ec9f9dc999eb
 	github.com/dop251/goja v0.0.0-20240220182346-e401ed450204
 	github.com/stretchr/testify v1.9.0
 	golang.org/x/crypto v0.22.0
 )
 
 require (
+	gioui.org v0.6.1-0.20240412213418-98d3a2eb24ac // indirect
+	gioui.org/cmd v0.0.0-20220818080936-02068d6340fc // indirect
+	gioui.org/example v0.6.1 // indirect
+	gioui.org/x v0.6.1 // indirect
 	github.com/Bios-Marcel/wastebasket v0.0.4-0.20240213135800-f26f1ae0a7c4 // indirect
 	github.com/Masterminds/vcs v1.13.3 // indirect
+	github.com/akavel/rsrc v0.10.1 // indirect
 	github.com/alecthomas/chroma/v2 v2.13.0 // indirect
 	github.com/anthonynsimon/bild v0.13.0 // indirect
 	github.com/axgle/mahonia v0.0.0-20180208002826-3358181d7394 // indirect
