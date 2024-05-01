@@ -39,7 +39,8 @@ func (o *object) FromIntegerByJS(hexTimeStr string) string {
 }
 
 func (o *object) FromBaseWith64Bit(hexTimeStr string, base int) string {
-	integerTime := mylog.Check(strconv.ParseInt(hexTimeStr, base, 64)).(int64)
+	integerTime, err := strconv.ParseInt(hexTimeStr, base, 64)
+	mylog.Check(err)
 	integerTime /= 1000
 	unixMicro := time.Unix(integerTime, 0)
 	return unixMicro.Format(timeTemplate1)
