@@ -8,8 +8,6 @@ import (
 	"crypto/sha512"
 	"hash"
 
-	"github.com/ddkwork/golibrary/safeType"
-
 	"github.com/ddkwork/golibrary/mylog"
 	"github.com/ddkwork/golibrary/stream"
 )

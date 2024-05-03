@@ -2,7 +2,7 @@ package des
 
 import (
 	"github.com/ddkwork/golibrary/mylog"
-	"github.com/ddkwork/golibrary/safeType"
+
 	"github.com/ddkwork/golibrary/stream"
 )
 

@@ -8,8 +8,6 @@ import (
 	"testing"
 	"time"
 
-	"github.com/ddkwork/golibrary/safeType"
-
 	"github.com/stretchr/testify/assert"
 
 	"github.com/ddkwork/golibrary/mylog"

@@ -3,8 +3,6 @@ package hmac
 import (
 	"testing"
 
-	"github.com/ddkwork/golibrary/safeType"
-
 	"github.com/stretchr/testify/assert"
 )
 

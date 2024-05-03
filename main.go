@@ -4,8 +4,6 @@ import (
 	_ "embed"
 	"strings"
 
-	"github.com/ddkwork/golibrary/safeType"
-
 	"cogentcore.org/core/events"
 	"cogentcore.org/core/gi"
 	"cogentcore.org/core/giv"

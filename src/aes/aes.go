@@ -1,7 +1,6 @@
 package aes
 
 import (
-	"github.com/ddkwork/golibrary/safeType"
 	"github.com/ddkwork/golibrary/stream"
 )
 
