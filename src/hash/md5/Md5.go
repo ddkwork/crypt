@@ -17,16 +17,16 @@ type (
 	}
 )
 
-func New() Interface { return &object{s: stream.New("")} }
+func New() Interface { return &object{s: stream.NewBuffer("")} }
 func (o *object) Sum(src string) *stream.Stream {
-	s := stream.New(src)
+	s := stream.NewBuffer(src)
 	hash := md5.New()
 	mylog.Check(hash.Write(s.Bytes()))
-	return stream.New(hash.Sum(nil))
+	return stream.NewBuffer(hash.Sum(nil))
 }
 
 func (o *object) Sum2(src string) *stream.Stream {
-	s := stream.New(src)
+	s := stream.NewBuffer(src)
 	array := md5.Sum(s.Bytes())
-	return stream.New(array[:])
+	return stream.NewBuffer(array[:])
 }

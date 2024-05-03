@@ -7,27 +7,27 @@ import (
 )
 
 func Encrypt[T safeType.BinaryType](src, key T) (dst *stream.Stream) {
-	s := stream.New(src)
-	k := stream.New(key)
+	s := stream.NewBuffer(src)
+	k := stream.NewBuffer(key)
 	if !s.CheckDesBlockSize() {
-		return stream.New(mylog.Body())
+		return stream.NewBuffer(mylog.Body())
 	}
 	if !k.CheckDesBlockSize() {
-		return stream.New(mylog.Body())
+		return stream.NewBuffer(mylog.Body())
 	}
 	subKeys := expand(k.Bytes())
-	return stream.New(des_encrypt(s.Bytes(), subKeys))
+	return stream.NewBuffer(des_encrypt(s.Bytes(), subKeys))
 }
 
 func Decrypt[T safeType.BinaryType](src, key T) (dst *stream.Stream) {
-	s := stream.New(src)
-	k := stream.New(key)
+	s := stream.NewBuffer(src)
+	k := stream.NewBuffer(key)
 	if !s.CheckDesBlockSize() {
-		return stream.New(mylog.Body())
+		return stream.NewBuffer(mylog.Body())
 	}
 	if !k.CheckDesBlockSize() {
-		return stream.New(mylog.Body())
+		return stream.NewBuffer(mylog.Body())
 	}
 	subKeys := expand(k.Bytes())
-	return stream.New(des_decrypt(s.Bytes(), subKeys))
+	return stream.NewBuffer(des_decrypt(s.Bytes(), subKeys))
 }

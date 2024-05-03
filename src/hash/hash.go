@@ -48,5 +48,5 @@ func setHash(src string, kind crypto.Hash) string {
 
 func setSum(src string, hash hash.Hash) string {
 	mylog.Check(io.WriteString(hash, src))
-	return string(stream.New(hash.Sum(nil)).HexString())
+	return string(stream.NewBuffer(hash.Sum(nil)).HexString())
 }

@@ -136,7 +136,7 @@ func main() {
 		switch switches.SelectedItem() {
 		case "gen pai":
 		case "encode":
-			encrypt := r.Encrypt(stream.New(info.M), info.N, info.E)
+			encrypt := r.Encrypt(stream.NewBuffer(info.M), info.N, info.E)
 			if encrypt == nil {
 				return
 			}

@@ -10,9 +10,10 @@ import (
 
 	"github.com/ddkwork/golibrary/safeType"
 
+	"github.com/stretchr/testify/assert"
+
 	"github.com/ddkwork/golibrary/mylog"
 	"github.com/ddkwork/golibrary/stream"
-	"github.com/stretchr/testify/assert"
 )
 
 func TestRsa(t *testing.T) {
@@ -20,7 +21,7 @@ func TestRsa(t *testing.T) {
 	e := "10001"
 	n := "703BF7A53D830F04A183A925211E322ADEB27404AEBD65607246934930A666B1"
 	d := "172586F1613A4242A63CCD098746FEF96A7C930F2B357223F7DA700C26C85871"
-	src := stream.New("ddk")
+	src := stream.NewBuffer("ddk")
 	c := safeType.HexString("0D28209417A9690EB52A9D83DCFF4F975BAB2F738136DE8CAED8C282703BC306")
 	dst := r.Encrypt(src, n, e)
 	assert.Equal(t, c, dst.HexStringUpper())

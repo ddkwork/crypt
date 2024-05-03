@@ -129,7 +129,7 @@ func (o *object) Encrypt(src *stream.Stream, n, e string) (dst *stream.Stream) {
 	o.SetE(e)
 	m := new(big.Int).SetBytes(src.Bytes())
 	o.c = new(big.Int).Exp(m, o.e, o.n)
-	return stream.New(o.c.Bytes())
+	return stream.NewBuffer(o.c.Bytes())
 }
 
 func (o *object) Decrypt(src *stream.Stream, n, e, d string) (dst *stream.Stream) {
@@ -141,7 +141,7 @@ func (o *object) Decrypt(src *stream.Stream, n, e, d string) (dst *stream.Stream
 	o.SetD(d)
 	o.c = new(big.Int).SetBytes(src.Bytes())
 	m := new(big.Int).Exp(o.c, o.d, o.n)
-	return stream.New(m.Bytes())
+	return stream.NewBuffer(m.Bytes())
 }
 
 func (o *object) CalcD(e, p, q string) *stream.Stream {
@@ -168,7 +168,7 @@ func (o *object) CalcD(e, p, q string) *stream.Stream {
 	mylog.Info("Qinv", Qinv.String())
 
 	o.d = new(big.Int).ModInverse(o.e, phi)
-	return stream.New(o.d.Bytes())
+	return stream.NewBuffer(o.d.Bytes())
 }
 
 var Default = New()

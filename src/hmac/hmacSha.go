@@ -40,8 +40,8 @@ func New() Interface {
 }
 
 func (o *object) Check(src string, key safeType.HexString) (ok bool) {
-	o.src = stream.New(src)
-	o.key = stream.New(key)
+	o.src = stream.NewBuffer(src)
+	o.key = stream.NewBuffer(key)
 	return true
 }
 
@@ -95,5 +95,5 @@ func (o *object) do(Type crypto.Hash) *stream.Stream {
 	}
 	h2 := hmac.New(o.fnNewSha, o.key.Bytes())
 	mylog.Check(h2.Write(o.src.Bytes()))
-	return stream.New(h2.Sum(nil))
+	return stream.NewBuffer(h2.Sum(nil))
 }
