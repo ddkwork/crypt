@@ -9,23 +9,23 @@ import (
 
 type (
 	Interface interface {
-		Sum(src string) *stream.Stream
-		Sum2(src string) *stream.Stream
+		Sum(src string) *stream.Buffer
+		Sum2(src string) *stream.Buffer
 	}
 	object struct {
-		s *stream.Stream
+		s *stream.Buffer
 	}
 )
 
 func New() Interface { return &object{s: stream.NewBuffer("")} }
-func (o *object) Sum(src string) *stream.Stream {
+func (o *object) Sum(src string) *stream.Buffer {
 	s := stream.NewBuffer(src)
 	hash := md5.New()
 	mylog.Check(hash.Write(s.Bytes()))
 	return stream.NewBuffer(hash.Sum(nil))
 }
 
-func (o *object) Sum2(src string) *stream.Stream {
+func (o *object) Sum2(src string) *stream.Buffer {
 	s := stream.NewBuffer(src)
 	array := md5.Sum(s.Bytes())
 	return stream.NewBuffer(array[:])

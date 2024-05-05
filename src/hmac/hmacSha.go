@@ -14,17 +14,17 @@ import (
 
 type (
 	Interface interface {
-		HmacSha1(src string, key safeType.HexString) *stream.Stream
-		HmacSha224(src string, key safeType.HexString) *stream.Stream
-		HmacSha256(src string, key safeType.HexString) *stream.Stream
-		HmacSha384(src string, key safeType.HexString) *stream.Stream
-		HmacSha512(src string, key safeType.HexString) *stream.Stream
+		HmacSha1(src string, key safeType.HexString) *stream.Buffer
+		HmacSha224(src string, key safeType.HexString) *stream.Buffer
+		HmacSha256(src string, key safeType.HexString) *stream.Buffer
+		HmacSha384(src string, key safeType.HexString) *stream.Buffer
+		HmacSha512(src string, key safeType.HexString) *stream.Buffer
 	}
 	object struct {
-		src      *stream.Stream
-		key      *stream.Stream
+		src      *stream.Buffer
+		key      *stream.Buffer
 		fnNewSha func() hash.Hash
-		err      *stream.Stream
+		err      *stream.Buffer
 	}
 )
 
@@ -43,42 +43,42 @@ func (o *object) Check(src string, key safeType.HexString) (ok bool) {
 	return true
 }
 
-func (o *object) HmacSha1(src string, key safeType.HexString) *stream.Stream {
+func (o *object) HmacSha1(src string, key safeType.HexString) *stream.Buffer {
 	if !o.Check(src, key) {
 		return o.err
 	}
 	return o.do(crypto.SHA1)
 }
 
-func (o *object) HmacSha224(src string, key safeType.HexString) *stream.Stream {
+func (o *object) HmacSha224(src string, key safeType.HexString) *stream.Buffer {
 	if !o.Check(src, key) {
 		return o.err
 	}
 	return o.do(crypto.SHA224)
 }
 
-func (o *object) HmacSha256(src string, key safeType.HexString) *stream.Stream {
+func (o *object) HmacSha256(src string, key safeType.HexString) *stream.Buffer {
 	if !o.Check(src, key) {
 		return o.err
 	}
 	return o.do(crypto.SHA256)
 }
 
-func (o *object) HmacSha384(src string, key safeType.HexString) *stream.Stream {
+func (o *object) HmacSha384(src string, key safeType.HexString) *stream.Buffer {
 	if !o.Check(src, key) {
 		return o.err
 	}
 	return o.do(crypto.SHA384)
 }
 
-func (o *object) HmacSha512(src string, key safeType.HexString) *stream.Stream {
+func (o *object) HmacSha512(src string, key safeType.HexString) *stream.Buffer {
 	if !o.Check(src, key) {
 		return o.err
 	}
 	return o.do(crypto.SHA512)
 }
 
-func (o *object) do(Type crypto.Hash) *stream.Stream {
+func (o *object) do(Type crypto.Hash) *stream.Buffer {
 	switch Type {
 	case crypto.SHA1:
 		o.fnNewSha = func() hash.Hash { return sha1.New() }

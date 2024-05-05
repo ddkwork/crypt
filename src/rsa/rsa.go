@@ -9,12 +9,12 @@ import (
 
 type (
 	Interface interface { // todo add output integer and hex method
-		Encrypt(src *stream.Stream, n, e string) (dst *stream.Stream)
-		Decrypt(src *stream.Stream, n, e, d string) (dst *stream.Stream)
-		CalcD(e, p, q string) *stream.Stream // 计算私钥
+		Encrypt(src *stream.Buffer, n, e string) (dst *stream.Buffer)
+		Decrypt(src *stream.Buffer, n, e, d string) (dst *stream.Buffer)
+		CalcD(e, p, q string) *stream.Buffer // 计算私钥
 		D() *big.Int
 		SetD(d string)
-		Factorization(src *stream.Stream) (dst *stream.Stream) // 因式分解
+		Factorization(src *stream.Buffer) (dst *stream.Buffer) // 因式分解
 	}
 	object struct {
 		p *big.Int
@@ -44,7 +44,7 @@ func (o *object) SetQ(q string) {
 	return
 }
 
-func (o *object) Factorization(src *stream.Stream) (dst *stream.Stream) { panic("implement me") }
+func (o *object) Factorization(src *stream.Buffer) (dst *stream.Buffer) { panic("implement me") }
 
 func (o *object) C() *big.Int { return o.c }
 
@@ -121,7 +121,7 @@ func fnCheck(src ...string) bool {
 	return true
 }
 
-func (o *object) Encrypt(src *stream.Stream, n, e string) (dst *stream.Stream) {
+func (o *object) Encrypt(src *stream.Buffer, n, e string) (dst *stream.Buffer) {
 	if !fnCheck(src.String(), n, e) {
 		return
 	}
@@ -132,7 +132,7 @@ func (o *object) Encrypt(src *stream.Stream, n, e string) (dst *stream.Stream) {
 	return stream.NewBuffer(o.c.Bytes())
 }
 
-func (o *object) Decrypt(src *stream.Stream, n, e, d string) (dst *stream.Stream) {
+func (o *object) Decrypt(src *stream.Buffer, n, e, d string) (dst *stream.Buffer) {
 	if !fnCheck(src.String(), n, e, d) {
 		return
 	}
@@ -144,7 +144,7 @@ func (o *object) Decrypt(src *stream.Stream, n, e, d string) (dst *stream.Stream
 	return stream.NewBuffer(m.Bytes())
 }
 
-func (o *object) CalcD(e, p, q string) *stream.Stream {
+func (o *object) CalcD(e, p, q string) *stream.Buffer {
 	if !fnCheck(p, q, e) {
 		return nil
 	}
