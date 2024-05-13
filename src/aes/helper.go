@@ -178,7 +178,7 @@ func mix_cols_inv(state []byte) {
 // Encrypt a single 128 bit block by a 128 bit key using AES
 // http://en.wikipedia.org/wiki/Advanced_Encryption_Standard
 func encrypt(m []byte, k []byte) (c [16]byte) {
-	// Key expansion
+	// Label expansion
 	keys := expand_key(k)
 
 	// First Round
@@ -204,7 +204,7 @@ func encrypt(m []byte, k []byte) (c [16]byte) {
 // Decrypt a single 128 bit block by a 128 bit key using AES
 // http://en.wikipedia.org/wiki/Advanced_Encryption_Standard
 func decrypt(c []byte, k []byte) (m [16]byte) {
-	// Key expansion
+	// Label expansion
 	keys := expand_key(k)
 
 	// Reverse the final Round

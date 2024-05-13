@@ -27,7 +27,7 @@ func TestDes1(t *testing.T) {
 	crypt := des_encrypt(msg, subkeys)
 	clear := des_decrypt(crypt, subkeys)
 
-	pretty("Key", key)
+	pretty("Label", key)
 	pretty("Message", msg)
 	pretty("Encrypted", crypt)
 	pretty("Decrypted", clear)

@@ -27,7 +27,7 @@ func TestName(t *testing.T) {
 	crypt := encrypt(msg, key)
 	clear := decrypt(crypt[0:], key)
 
-	pretty("Key", key)
+	pretty("Label", key)
 	pretty("Message", msg)
 	pretty("Encrypted", crypt[0:])
 	pretty("Decrypted", clear[0:])
@@ -42,7 +42,7 @@ func TestName(t *testing.T) {
 //  crypt := encrypt(msg,key)
 //  clear := decrypt(crypt[0:],key)
 //
-//  pretty("Key", key)
+//  pretty("Label", key)
 //  pretty("Message", msg)
 //  pretty("Encrypted", crypt[0:])
 //  pretty("Decrypted", clear[0:])
