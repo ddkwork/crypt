@@ -49,7 +49,7 @@ func (o *object) String() string { // bug
 		buffer.WriteByte('\n')
 	}
 	buffer.WriteString("}")
-	source, err := format.Source(buffer.Bytes())
+	source := mylog.Check2(format.Source(buffer.Bytes()))
 	mylog.Check(err)
 	return string(source)
 }
