@@ -26,12 +26,12 @@ type (
 
 func (o *object) FromIntegerByJS(hexTimeStr string) string {
 	runtime := goja.New()
-	_, err := runtime.RunString(jsBody)
+	_ := mylog.Check2(runtime.RunString(jsBody))
 	if err != nil {
 		return err.Error()
 	}
 	var fn func(string) string
-	err = runtime.ExportTo(runtime.Get("timestamp_to_date"), &fn)
+	mylog.Check(runtime.ExportTo(runtime.Get("timestamp_to_date"), &fn))
 	if err != nil {
 		return err.Error()
 	}
@@ -39,7 +39,7 @@ func (o *object) FromIntegerByJS(hexTimeStr string) string {
 }
 
 func (o *object) FromBaseWith64Bit(hexTimeStr string, base int) string {
-	integerTime, err := strconv.ParseInt(hexTimeStr, base, 64)
+	integerTime := mylog.Check2(strconv.ParseInt(hexTimeStr, base, 64))
 	mylog.Check(err)
 	integerTime /= 1000
 	unixMicro := time.Unix(integerTime, 0)
