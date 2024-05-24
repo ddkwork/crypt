@@ -27,14 +27,10 @@ type (
 func (o *object) FromIntegerByJS(hexTimeStr string) string {
 	runtime := goja.New()
 	_ := mylog.Check2(runtime.RunString(jsBody))
-	if err != nil {
-		return err.Error()
-	}
+
 	var fn func(string) string
 	mylog.Check(runtime.ExportTo(runtime.Get("timestamp_to_date"), &fn))
-	if err != nil {
-		return err.Error()
-	}
+
 	return fn(hexTimeStr)
 }
 
