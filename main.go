@@ -363,11 +363,9 @@ func CanvasTemplate(parent *gi.Frame, template *ObjectTemplate, kind Kind) {
 		case Sm2:
 		case Base64:
 			decodeString := mylog.Check2(base64.New().StdEncoding().DecodeString(template.Dst))
-			mylog.Check(err)
 			template.Src = string(decodeString)
 		case Base32:
 			decodeString := mylog.Check2(base32.New().StdEncoding().DecodeString(template.Dst))
-			mylog.Check(err)
 			template.Src = string(decodeString)
 		case Gzip:
 			template.Src = string(stream.ReaderGzip(stream.HexString(template.Dst)).HexStringUpper())

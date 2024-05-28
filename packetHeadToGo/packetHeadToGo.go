@@ -50,7 +50,7 @@ func (o *object) String() string { // bug
 	}
 	buffer.WriteString("}")
 	source := mylog.Check2(format.Source(buffer.Bytes()))
-	mylog.Check(err)
+	
 	return string(source)
 }
 
