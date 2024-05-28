@@ -103,7 +103,7 @@ func main() {
 	//	view.SetStruct(info)
 	//})
 	//widget.NewButton(newFrame).SetText("decode").SetTooltip("解密 M=C^d(mod n)").OnClick(func(e events.Event) {
-	//	decrypt := r.Decrypt(stream.NewHexString(safeType.HexString(info.C)), info.N, info.E, info.D)
+	//	decrypt := r.Decrypt(stream.NewHexString(stream.HexString(info.C)), info.N, info.E, info.D)
 	//	if decrypt == nil {
 	//		return
 	//	}
@@ -141,7 +141,7 @@ func main() {
 			info.C = string(encrypt.HexStringUpper())
 			view.SetStruct(info)
 		case "decode":
-			decrypt := r.Decrypt(stream.NewHexString(safeType.HexString(info.C)), info.N, info.E, info.D)
+			decrypt := r.Decrypt(stream.NewHexString(stream.HexString(info.C)), info.N, info.E, info.D)
 			if decrypt == nil {
 				return
 			}
@@ -192,11 +192,11 @@ func main() {
 		*hmacData = HmacData{
 			Src:        hmacData.Src,
 			Key:        hmacData.Key,
-			HmacSha1:   string(h.HmacSha1(hmacData.Src, safeType.HexString(hmacData.Key)).HexString()),
-			HmacSha224: string(h.HmacSha224(hmacData.Src, safeType.HexString(hmacData.Key)).HexString()),
-			HmacSha256: string(h.HmacSha256(hmacData.Src, safeType.HexString(hmacData.Key)).HexString()),
-			HmacSha384: string(h.HmacSha384(hmacData.Src, safeType.HexString(hmacData.Key)).HexString()),
-			HmacSha512: string(h.HmacSha512(hmacData.Src, safeType.HexString(hmacData.Key)).HexString()),
+			HmacSha1:   string(h.HmacSha1(hmacData.Src, stream.HexString(hmacData.Key)).HexString()),
+			HmacSha224: string(h.HmacSha224(hmacData.Src, stream.HexString(hmacData.Key)).HexString()),
+			HmacSha256: string(h.HmacSha256(hmacData.Src, stream.HexString(hmacData.Key)).HexString()),
+			HmacSha384: string(h.HmacSha384(hmacData.Src, stream.HexString(hmacData.Key)).HexString()),
+			HmacSha512: string(h.HmacSha512(hmacData.Src, stream.HexString(hmacData.Key)).HexString()),
 		}
 		HmacStructView.Update()
 	})
@@ -320,9 +320,9 @@ func CanvasTemplate(parent *gi.Frame, template *ObjectTemplate, kind Kind) {
 	encode.OnClick(func(e events.Event) {
 		switch kind {
 		case Aes:
-			template.Dst = string(aes.Encrypt(safeType.HexString(template.Src), safeType.HexString(template.Key)).HexString())
+			template.Dst = string(aes.Encrypt(stream.HexString(template.Src), stream.HexString(template.Key)).HexString())
 		case Des:
-			template.Dst = string(des.Encrypt(safeType.HexString(template.Src), safeType.HexString(template.Key)).HexString())
+			template.Dst = string(des.Encrypt(stream.HexString(template.Src), stream.HexString(template.Key)).HexString())
 		case Des3:
 		case Tea:
 		case Blowfish:
@@ -346,9 +346,9 @@ func CanvasTemplate(parent *gi.Frame, template *ObjectTemplate, kind Kind) {
 	decode.OnClick(func(e events.Event) {
 		switch kind {
 		case Aes:
-			template.Src = string(aes.Decrypt(safeType.HexString(template.Dst), safeType.HexString(template.Key)).HexString())
+			template.Src = string(aes.Decrypt(stream.HexString(template.Dst), stream.HexString(template.Key)).HexString())
 		case Des:
-			template.Src = string(des.Decrypt(safeType.HexString(template.Dst), safeType.HexString(template.Key)).HexString())
+			template.Src = string(des.Decrypt(stream.HexString(template.Dst), stream.HexString(template.Key)).HexString())
 		case Des3:
 		case Tea:
 		case Blowfish:
@@ -370,7 +370,7 @@ func CanvasTemplate(parent *gi.Frame, template *ObjectTemplate, kind Kind) {
 			mylog.Check(err)
 			template.Src = string(decodeString)
 		case Gzip:
-			template.Src = string(stream.ReaderGzip(safeType.HexString(template.Dst)).HexStringUpper())
+			template.Src = string(stream.ReaderGzip(stream.HexString(template.Dst)).HexStringUpper())
 		}
 		structView.SetStruct(template)
 	})

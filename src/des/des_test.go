@@ -9,11 +9,11 @@ import (
 func TestDes(t *testing.T) {
 	src := "1122334455667788"
 	key := "1122334455667788"
-	dst := Encrypt(safeType.HexString(src), safeType.HexString(key))
-	assert.Equal(t, safeType.HexString("cd09bc4876ac0f2b"), dst.HexString())
+	dst := Encrypt(stream.HexString(src), stream.HexString(key))
+	assert.Equal(t, stream.HexString("cd09bc4876ac0f2b"), dst.HexString())
 
-	d := Decrypt(dst.HexString(), safeType.HexString(key))
-	assert.Equal(t, safeType.HexString("1122334455667788"), d.HexString())
+	d := Decrypt(dst.HexString(), stream.HexString(key))
+	assert.Equal(t, stream.HexString("1122334455667788"), d.HexString())
 }
 
 // TestMarshal the crypto implementation

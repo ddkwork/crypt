@@ -14,11 +14,11 @@ import (
 
 type (
 	Interface interface {
-		HmacSha1(src string, key safeType.HexString) *stream.Buffer
-		HmacSha224(src string, key safeType.HexString) *stream.Buffer
-		HmacSha256(src string, key safeType.HexString) *stream.Buffer
-		HmacSha384(src string, key safeType.HexString) *stream.Buffer
-		HmacSha512(src string, key safeType.HexString) *stream.Buffer
+		HmacSha1(src string, key stream.HexString) *stream.Buffer
+		HmacSha224(src string, key stream.HexString) *stream.Buffer
+		HmacSha256(src string, key stream.HexString) *stream.Buffer
+		HmacSha384(src string, key stream.HexString) *stream.Buffer
+		HmacSha512(src string, key stream.HexString) *stream.Buffer
 	}
 	object struct {
 		src      *stream.Buffer
@@ -37,41 +37,41 @@ func New() Interface {
 	}
 }
 
-func (o *object) Check(src string, key safeType.HexString) (ok bool) {
+func (o *object) Check(src string, key stream.HexString) (ok bool) {
 	o.src = stream.NewBuffer(src)
 	o.key = stream.NewBuffer(key)
 	return true
 }
 
-func (o *object) HmacSha1(src string, key safeType.HexString) *stream.Buffer {
+func (o *object) HmacSha1(src string, key stream.HexString) *stream.Buffer {
 	if !o.Check(src, key) {
 		return o.err
 	}
 	return o.do(crypto.SHA1)
 }
 
-func (o *object) HmacSha224(src string, key safeType.HexString) *stream.Buffer {
+func (o *object) HmacSha224(src string, key stream.HexString) *stream.Buffer {
 	if !o.Check(src, key) {
 		return o.err
 	}
 	return o.do(crypto.SHA224)
 }
 
-func (o *object) HmacSha256(src string, key safeType.HexString) *stream.Buffer {
+func (o *object) HmacSha256(src string, key stream.HexString) *stream.Buffer {
 	if !o.Check(src, key) {
 		return o.err
 	}
 	return o.do(crypto.SHA256)
 }
 
-func (o *object) HmacSha384(src string, key safeType.HexString) *stream.Buffer {
+func (o *object) HmacSha384(src string, key stream.HexString) *stream.Buffer {
 	if !o.Check(src, key) {
 		return o.err
 	}
 	return o.do(crypto.SHA384)
 }
 
-func (o *object) HmacSha512(src string, key safeType.HexString) *stream.Buffer {
+func (o *object) HmacSha512(src string, key stream.HexString) *stream.Buffer {
 	if !o.Check(src, key) {
 		return o.err
 	}
