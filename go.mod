@@ -1,6 +1,6 @@
 module github.com/ddkwork/crypt
 
-go 1.22.3
+go 1.22.4
 
 require (
 	cogentcore.org/core v0.0.10-0.20240330171712-17511011859c
