@@ -8,7 +8,6 @@ import (
 	"crypto/sha512"
 	"hash"
 
-	"github.com/ddkwork/golibrary/mylog"
 	"github.com/ddkwork/golibrary/stream"
 )
 
@@ -92,6 +91,6 @@ func (o *object) do(Type crypto.Hash) *stream.Buffer {
 		o.fnNewSha = func() hash.Hash { return sha512.New() }
 	}
 	h2 := hmac.New(o.fnNewSha, o.key.Bytes())
-	mylog.Check(h2.Write(o.src.Bytes()))
+	h2.Write(o.src.Bytes())
 	return stream.NewBuffer(h2.Sum(nil))
 }

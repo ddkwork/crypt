@@ -4,6 +4,8 @@ import (
 	_ "embed"
 	"strings"
 
+	widget "github.com/ddkwork/workspace/rep/corewidget"
+
 	"cogentcore.org/core/events"
 	"cogentcore.org/core/gi"
 	"cogentcore.org/core/giv"

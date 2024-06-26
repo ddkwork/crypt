@@ -26,8 +26,7 @@ type (
 
 func (o *object) FromIntegerByJS(hexTimeStr string) string {
 	runtime := goja.New()
-	_ := mylog.Check2(runtime.RunString(jsBody))
-
+	mylog.Check2(runtime.RunString(jsBody))
 	var fn func(string) string
 	mylog.Check(runtime.ExportTo(runtime.Get("timestamp_to_date"), &fn))
 
