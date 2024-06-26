@@ -18,7 +18,7 @@ func TestName(t *testing.T) {
 
 func TestJs(t *testing.T) {
 	runtime := goja.New()
-	mylog.Check(runtime.RunString(jsBody))
+	mylog.Check2(runtime.RunString(jsBody))
 	var fn func(string) string
 	mylog.Check(runtime.ExportTo(runtime.Get("timestamp_to_date"), &fn))
 	s := fn("1634662111")
