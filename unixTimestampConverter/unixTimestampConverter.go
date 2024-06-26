@@ -29,13 +29,11 @@ func (o *object) FromIntegerByJS(hexTimeStr string) string {
 	mylog.Check2(runtime.RunString(jsBody))
 	var fn func(string) string
 	mylog.Check(runtime.ExportTo(runtime.Get("timestamp_to_date"), &fn))
-
 	return fn(hexTimeStr)
 }
 
 func (o *object) FromBaseWith64Bit(hexTimeStr string, base int) string {
 	integerTime := mylog.Check2(strconv.ParseInt(hexTimeStr, base, 64))
-
 	integerTime /= 1000
 	unixMicro := time.Unix(integerTime, 0)
 	return unixMicro.Format(timeTemplate1)
@@ -46,7 +44,5 @@ func (o *object) FromInteger(hexTimeStr string) string { return o.FromBaseWith64
 const timeTemplate1 = "2006-01-02 15:04:05"
 
 func (o *object) UnixTimestamp() int64 { return time.Now().UnixNano() / 1e6 }
-
-var Default = New()
 
 func New() Interface { return &object{} }
