@@ -302,9 +302,9 @@ func main() {
 
 type (
 	ObjectTemplate struct {
-		Src string `width:"50"`
-		Key string `width:"50"`
-		Dst string `width:"50"`
+		Src string
+		Key string
+		Dst string
 	}
 )
 
