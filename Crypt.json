@@ -1,94 +1,84 @@
 {
- "id": "9f4225e2-64cb-4107-848c-aa3e04b91848",
+ "id": "086cc1c6-31f8-426a-80da-1815794c6576",
  "type": "root_container",
  "Data": {
-  "PrentName": "",
   "Name": 0
  },
  "children": [
   {
-   "id": "4e55b075-80aa-41dd-aa3e-f44fbe7a884b",
+   "id": "4becd5fe-a82e-442d-a8c0-684287605f36",
    "type": "Symmetry_container",
    "Data": {
-    "PrentName": "Symmetry (8)",
     "Name": 0
    },
    "children": [
     {
-     "id": "345da692-77b4-4897-9a3d-76731e565f67",
+     "id": "89c2f1a9-238e-4036-944b-a7bc396fdf51",
      "type": "",
      "Data": {
-      "PrentName": "",
       "Name": 0
      },
      "Columns": null,
      "PreventUserColumnResize": false
     },
     {
-     "id": "d1ff68b6-375e-4ab4-aa63-bfc0a2999109",
+     "id": "b9f70c5c-cb55-478f-9f71-cb40e24e0507",
      "type": "",
      "Data": {
-      "PrentName": "",
       "Name": 1
      },
      "Columns": null,
      "PreventUserColumnResize": false
     },
     {
-     "id": "7dae89d5-87c8-45e7-b2b7-baf63a7f37b7",
+     "id": "e304abe9-e7a4-4b13-a758-a74e0b032d23",
      "type": "",
      "Data": {
-      "PrentName": "",
       "Name": 2
      },
      "Columns": null,
      "PreventUserColumnResize": false
     },
     {
-     "id": "0776978b-01cc-4228-a8a8-3a796a921312",
+     "id": "f381df94-5f59-435b-9af7-6ae9d86e663e",
      "type": "",
      "Data": {
-      "PrentName": "",
       "Name": 3
      },
      "Columns": null,
      "PreventUserColumnResize": false
     },
     {
-     "id": "488aab0a-5ead-4ad9-aeb5-da3cd4e64261",
+     "id": "d2856cee-3532-44c7-8d76-72f4f5805852",
      "type": "",
      "Data": {
-      "PrentName": "",
       "Name": 4
      },
      "Columns": null,
      "PreventUserColumnResize": false
     },
     {
-     "id": "1031e584-91fe-4c37-85d2-d67bcf940f20",
+     "id": "35dcbac4-ca2c-4560-b8ac-517646590a07",
      "type": "",
      "Data": {
-      "PrentName": "",
       "Name": 5
      },
      "Columns": null,
      "PreventUserColumnResize": false
     },
     {
-     "id": "1a811ab8-6ca8-442d-8703-837d6e003333",
+     "id": "772bf7a9-95bb-4cd5-bab4-53ec26732157",
      "type": "",
      "Data": {
-      "PrentName": "",
       "Name": 6
      },
      "Columns": null,
      "PreventUserColumnResize": false
     },
     {
-     "id": "3b14e9c2-e628-49dc-b8dd-275c026824ed",
+     "id": "e3b3c78d-9080-48fd-9777-5da6526ff6bc",
      "type": "",
      "Data": {
-      "PrentName": "",
       "Name": 7
      },
      "Columns": null,
@@ -99,68 +89,61 @@
    "PreventUserColumnResize": false
   },
   {
-   "id": "16a267ab-8056-412a-aba4-aec6fd81fb32",
+   "id": "a4566b17-7d98-4e4c-be44-30bc28b86852",
    "type": "Asymmetrical_container",
    "Data": {
-    "PrentName": "Asymmetrical (6)",
     "Name": 0
    },
    "children": [
     {
-     "id": "4cd4ce18-56ea-415d-9515-65f8eecd38e8",
+     "id": "0e62d37a-3a06-4aaa-bd9e-5446a20c6d1d",
      "type": "",
      "Data": {
-      "PrentName": "",
       "Name": 8
      },
      "Columns": null,
      "PreventUserColumnResize": false
     },
     {
-     "id": "2cf927e9-6840-41ec-a2c1-a8c1f1d8138f",
+     "id": "4ea71994-79ac-4541-90c8-7ac2be3893e1",
      "type": "",
      "Data": {
-      "PrentName": "",
       "Name": 9
      },
      "Columns": null,
      "PreventUserColumnResize": false
     },
     {
-     "id": "ce00393d-1ab0-4272-a488-4001acb194b3",
+     "id": "a63e053d-5b8b-418b-817e-1f01dd1637eb",
      "type": "",
      "Data": {
-      "PrentName": "",
       "Name": 10
      },
      "Columns": null,
      "PreventUserColumnResize": false
     },
     {
-     "id": "2903ddd7-a005-4461-be49-be8c3ef243ac",
+     "id": "c359d782-8668-4523-b26f-9232325a8b88",
      "type": "",
      "Data": {
-      "PrentName": "",
       "Name": 11
      },
      "Columns": null,
      "PreventUserColumnResize": false
     },
     {
-     "id": "bc8eac7b-3c32-4826-88ab-49c38fc7db94",
+     "id": "8ed3dd9f-b31c-4f5d-ae63-c134f528ff01",
      "type": "",
      "Data": {
-      "PrentName": "",
       "Name": 12
      },
      "Columns": null,
      "PreventUserColumnResize": false
     },
     {
-     "id": "267fd780-18dd-4b1d-b424-6517bdfcd94b",
+     "id": "3cdf7473-512e-4f83-a52f-2c71b4cd6379",
      "type": "",
      "Data": {
-      "PrentName": "",
       "Name": 13
      },
      "Columns": null,
@@ -171,28 +154,25 @@
    "PreventUserColumnResize": false
   },
   {
-   "id": "af3c6830-b40b-442e-a886-54c10854acf3",
+   "id": "c5e89672-5ffa-41ec-8cf6-58f62289e683",
    "type": "Hash_container",
    "Data": {
-    "PrentName": "Hash (2)",
     "Name": 0
    },
    "children": [
     {
-     "id": "062929c7-981c-4ab1-97a8-0675caada617",
+     "id": "98636b61-6e18-4ca7-a0b8-828be432be68",
      "type": "",
      "Data": {
-      "PrentName": "",
       "Name": 14
      },
      "Columns": null,
      "PreventUserColumnResize": false
     },
     {
-     "id": "ec3a9dc3-d083-464e-83fd-0b4dd93118a5",
+     "id": "c7bb2a60-51b7-453c-9ecd-121fe1f8c15b",
      "type": "",
      "Data": {
-      "PrentName": "",
       "Name": 15
      },
      "Columns": null,
@@ -203,38 +183,34 @@
    "PreventUserColumnResize": false
   },
   {
-   "id": "4f99bcf9-f1eb-4f44-95f6-c16c4562aa55",
+   "id": "a09c1c08-2d3c-4572-9f1e-4c11f33c0f3c",
    "type": "Encoding_container",
    "Data": {
-    "PrentName": "Encoding (3)",
     "Name": 0
    },
    "children": [
     {
-     "id": "d4b1ffdd-9f5f-458e-8002-ed1439dbd5e0",
+     "id": "8c4d3b26-340d-4035-bf06-59ec9b4aeadb",
      "type": "",
      "Data": {
-      "PrentName": "",
       "Name": 16
      },
      "Columns": null,
      "PreventUserColumnResize": false
     },
     {
-     "id": "e74e3f70-145c-4f7f-8fc0-fc86cdf0f2cc",
+     "id": "fc4e30e6-c49d-4f95-b557-27e852052b4b",
      "type": "",
      "Data": {
-      "PrentName": "",
       "Name": 17
      },
      "Columns": null,
      "PreventUserColumnResize": false
     },
     {
-     "id": "4e0049af-de63-421b-bce7-bf384787beae",
+     "id": "397fcd8e-8402-4bb6-99aa-bf82021de9eb",
      "type": "",
      "Data": {
-      "PrentName": "",
       "Name": 18
      },
      "Columns": null,
@@ -245,48 +221,43 @@
    "PreventUserColumnResize": false
   },
   {
-   "id": "b6634f36-4b4e-4dab-9a01-fcb6c5ea864c",
+   "id": "1a43daa2-f930-4d86-a177-09765c3333f1",
    "type": "Tool_container",
    "Data": {
-    "PrentName": "Tool (4)",
     "Name": 0
    },
    "children": [
     {
-     "id": "00117d7d-2116-42a5-a4bd-9d4d72452a9f",
+     "id": "0db4b281-d456-446f-a53b-7a9238435b45",
      "type": "",
      "Data": {
-      "PrentName": "",
       "Name": 19
      },
      "Columns": null,
      "PreventUserColumnResize": false
     },
     {
-     "id": "cabce4ea-870a-4181-96b2-6ee9a8551e0e",
+     "id": "5b3e883b-8855-40e3-ba1a-800edc20eee8",
      "type": "",
      "Data": {
-      "PrentName": "",
       "Name": 20
      },
      "Columns": null,
      "PreventUserColumnResize": false
     },
     {
-     "id": "b09f1bb3-ce5e-4077-be04-899e682cf8f2",
+     "id": "a3738eae-90f2-4db0-b1ba-151e6f899315",
      "type": "",
      "Data": {
-      "PrentName": "",
       "Name": 21
      },
      "Columns": null,
      "PreventUserColumnResize": false
     },
     {
-     "id": "a2be9e54-c82f-47bf-8c7e-f519a8f0eb20",
+     "id": "8f758ff4-6fa0-48de-980c-c561a9188ca9",
      "type": "",
      "Data": {
-      "PrentName": "",
       "Name": 22
      },
      "Columns": null,
@@ -300,16 +271,7 @@
  "Columns": [
   {
    "ID": 0,
-   "Current": 135,
-   "Minimum": 78.56738,
-   "Maximum": 10000,
-   "AutoMinimum": 0,
-   "AutoMaximum": 0,
-   "Cell": "PrentName"
-  },
-  {
-   "ID": 1,
-   "Current": 104,
+   "Current": 140,
    "Minimum": 45.283203,
    "Maximum": 10000,
    "AutoMinimum": 0,

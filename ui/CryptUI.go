@@ -4,15 +4,12 @@ import (
 	"strconv"
 	"strings"
 
-	"github.com/ddkwork/crypt/src/aes"
-	"github.com/ddkwork/golibrary/stream"
-
-	"github.com/ddkwork/golibrary/mylog"
-
-	"github.com/ddkwork/golibrary/stream/orderedmap"
-
 	"github.com/ddkwork/app"
 	"github.com/ddkwork/app/widget"
+	"github.com/ddkwork/crypt/src/aes"
+	"github.com/ddkwork/golibrary/mylog"
+	"github.com/ddkwork/golibrary/stream"
+	"github.com/ddkwork/golibrary/stream/orderedmap"
 	"github.com/richardwilkes/unison"
 )
 
@@ -20,6 +17,7 @@ func main() {
 	app.Run("crypto tool", func(w *unison.Window) {
 		content := w.Content()
 		panel := widget.NewPanel()
+		panel.AddChild(widget.NewVSpacer())
 		panel.AddChild(NewCryptUI().Layout())
 		scrollPanelFill := widget.NewScrollPanelFill(panel)
 		content.AddChild(scrollPanelFill)
@@ -34,8 +32,7 @@ func NewCryptUI() *CryptUI {
 
 type (
 	CryptTable struct {
-		PrentName string
-		Name      CryptNameKind
+		Name CryptNameKind
 	}
 	skdData struct {
 		Src string
@@ -70,15 +67,13 @@ func (c *CryptUI) Layout() *unison.Panel {
 		MarshalRow: func(node *widget.Node[CryptTable]) (cells []widget.CellData) {
 			name := node.Data.Name.String()
 			if node.Container() {
-				name = ""
-				node.Data.PrentName = node.Type
-				node.Data.PrentName = strings.TrimSuffix(node.Data.PrentName, widget.ContainerKeyPostfix)
-				node.Data.PrentName = strings.TrimSuffix(node.Data.PrentName, "Node")
-				node.Data.PrentName += " ("
-				node.Data.PrentName += strconv.Itoa(node.LenChildren())
-				node.Data.PrentName += ")"
+				name = node.Type
+				name = strings.TrimSuffix(name, widget.ContainerKeyPostfix)
+				name += " ("
+				name += strconv.Itoa(node.LenChildren())
+				name += ")"
 			}
-			return []widget.CellData{{Text: node.Data.PrentName}, {Text: name}}
+			return []widget.CellData{{Text: name}}
 		},
 		UnmarshalRow:             nil,
 		SelectionChangedCallback: nil,
@@ -88,41 +83,41 @@ func (c *CryptUI) Layout() *unison.Panel {
 				case SymmetryKind:
 					container := widget.NewContainerNode(SymmetryKind.String(), CryptTable{})
 					root.AddChild(container)
-					container.AddChildByData(CryptTable{PrentName: "", Name: AesKind})
-					container.AddChildByData(CryptTable{PrentName: "", Name: DesKind})
-					container.AddChildByData(CryptTable{PrentName: "", Name: Des3Kind})
-					container.AddChildByData(CryptTable{PrentName: "", Name: TeaKind})
-					container.AddChildByData(CryptTable{PrentName: "", Name: BlowfishKind})
-					container.AddChildByData(CryptTable{PrentName: "", Name: TwoFishKind})
-					container.AddChildByData(CryptTable{PrentName: "", Name: Rc4Kind})
-					container.AddChildByData(CryptTable{PrentName: "", Name: Rc2Kind})
+					container.AddChildByData(CryptTable{Name: AesKind})
+					container.AddChildByData(CryptTable{Name: DesKind})
+					container.AddChildByData(CryptTable{Name: Des3Kind})
+					container.AddChildByData(CryptTable{Name: TeaKind})
+					container.AddChildByData(CryptTable{Name: BlowfishKind})
+					container.AddChildByData(CryptTable{Name: TwoFishKind})
+					container.AddChildByData(CryptTable{Name: Rc4Kind})
+					container.AddChildByData(CryptTable{Name: Rc2Kind})
 				case AsymmetricalKind:
 					container := widget.NewContainerNode(AsymmetricalKind.String(), CryptTable{})
 					root.AddChild(container)
-					container.AddChildByData(CryptTable{PrentName: "", Name: RsaKind})
-					container.AddChildByData(CryptTable{PrentName: "", Name: EccKind})
-					container.AddChildByData(CryptTable{PrentName: "", Name: DsaKind})
-					container.AddChildByData(CryptTable{PrentName: "", Name: PgpKind})
-					container.AddChildByData(CryptTable{PrentName: "", Name: Sm4Kind})
-					container.AddChildByData(CryptTable{PrentName: "", Name: Sm2Kind})
+					container.AddChildByData(CryptTable{Name: RsaKind})
+					container.AddChildByData(CryptTable{Name: EccKind})
+					container.AddChildByData(CryptTable{Name: DsaKind})
+					container.AddChildByData(CryptTable{Name: PgpKind})
+					container.AddChildByData(CryptTable{Name: Sm4Kind})
+					container.AddChildByData(CryptTable{Name: Sm2Kind})
 				case HashKind:
 					container := widget.NewContainerNode(HashKind.String(), CryptTable{})
 					root.AddChild(container)
-					container.AddChildByData(CryptTable{PrentName: "", Name: HmacKind})
-					container.AddChildByData(CryptTable{PrentName: "", Name: HashAllKind})
+					container.AddChildByData(CryptTable{Name: HmacKind})
+					container.AddChildByData(CryptTable{Name: HashAllKind})
 				case EncodingKind:
 					container := widget.NewContainerNode(EncodingKind.String(), CryptTable{})
 					root.AddChild(container)
-					container.AddChildByData(CryptTable{PrentName: "", Name: Base64Kind})
-					container.AddChildByData(CryptTable{PrentName: "", Name: Base32Kind})
-					container.AddChildByData(CryptTable{PrentName: "", Name: GzipKind})
+					container.AddChildByData(CryptTable{Name: Base64Kind})
+					container.AddChildByData(CryptTable{Name: Base32Kind})
+					container.AddChildByData(CryptTable{Name: GzipKind})
 				case ToolKind:
 					container := widget.NewContainerNode(ToolKind.String(), CryptTable{})
 					root.AddChild(container)
-					container.AddChildByData(CryptTable{PrentName: "", Name: TrimSpaceKind})
-					container.AddChildByData(CryptTable{PrentName: "", Name: SwapKind})
-					container.AddChildByData(CryptTable{PrentName: "", Name: RequestHeaderKind})
-					container.AddChildByData(CryptTable{PrentName: "", Name: TimeStampKind})
+					container.AddChildByData(CryptTable{Name: TrimSpaceKind})
+					container.AddChildByData(CryptTable{Name: SwapKind})
+					container.AddChildByData(CryptTable{Name: RequestHeaderKind})
+					container.AddChildByData(CryptTable{Name: TimeStampKind})
 				default:
 				}
 			}
@@ -143,6 +138,13 @@ func (c *CryptUI) Layout() *unison.Panel {
 		panel1 := widget.NewButtonsPanel(
 			[]string{"encode", "decode"},
 			func() {
+				if view.Editors[0].Label.String() == "" { // todo
+					view.Editors[0].Label.SetTitle("1122334455667788")
+				}
+				if view.Editors[1].Label.String() == "" {
+					view.Editors[1].Label.SetTitle("1122334455667788")
+				}
+
 				view.MetaData.Src = view.Editors[0].Label.String()
 				view.MetaData.Key = view.Editors[1].Label.String()
 				view.MetaData.Dst = string(aes.Encrypt(stream.HexString(view.MetaData.Src), stream.HexString(view.MetaData.Key)).HexString())
@@ -155,7 +157,6 @@ func (c *CryptUI) Layout() *unison.Panel {
 				view.UpdateField(0, view.MetaData.Src)
 			},
 		)
-		RowPanel.AddChild(widget.NewVSpacer())
 		RowPanel.AddChild(panel1)
 
 		panel := widget.NewPanel()
