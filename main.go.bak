@@ -6,24 +6,7 @@ import (
 
 	widget "github.com/ddkwork/workspace/rep/corewidget"
 
-	"cogentcore.org/core/events"
-	"cogentcore.org/core/gi"
-	"cogentcore.org/core/giv"
-	"cogentcore.org/core/styles"
-	"cogentcore.org/core/texteditor"
 
-	"github.com/ddkwork/crypt/packetHeadToGo"
-	"github.com/ddkwork/crypt/src/aes"
-	"github.com/ddkwork/crypt/src/base32"
-	"github.com/ddkwork/crypt/src/base64"
-	"github.com/ddkwork/crypt/src/des"
-	"github.com/ddkwork/crypt/src/hash"
-	"github.com/ddkwork/crypt/src/hmac"
-	"github.com/ddkwork/crypt/src/rsa"
-	"github.com/ddkwork/crypt/unixTimestampConverter"
-	"github.com/ddkwork/golibrary/mylog"
-	"github.com/ddkwork/golibrary/stream"
-	//
 )
 
 //go:generate go install .
@@ -302,9 +285,9 @@ func main() {
 
 type (
 	ObjectTemplate struct {
-		Src string `width:"50"`
-		Key string `width:"50"`
-		Dst string `width:"50"`
+		Src string
+		Key string
+		Dst string
 	}
 )
 
