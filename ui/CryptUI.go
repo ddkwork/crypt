@@ -17,7 +17,6 @@ func main() {
 	app.Run("crypto tool", func(w *unison.Window) {
 		content := w.Content()
 		panel := widget.NewPanel()
-		panel.AddChild(widget.NewVSpacer())
 		panel.AddChild(NewCryptUI().Layout())
 		scrollPanelFill := widget.NewScrollPanelFill(panel)
 		content.AddChild(scrollPanelFill)
@@ -160,7 +159,6 @@ func (c *CryptUI) Layout() *unison.Panel {
 		RowPanel.AddChild(panel1)
 
 		panel := widget.NewPanel()
-		panel.AddChild(widget.NewVSpacer())
 		panel.AddChild(view)
 		panel.AddChild(RowPanel)
 		scrollPanelFill := widget.NewScrollPanelFill(panel)
@@ -185,11 +183,9 @@ func (c *CryptUI) Layout() *unison.Panel {
 				view.UpdateField(0, view.MetaData.Src)
 			},
 		)
-		RowPanel.AddChild(widget.NewVSpacer())
 		RowPanel.AddChild(panel1)
 
 		panel := widget.NewPanel()
-		panel.AddChild(widget.NewVSpacer())
 		panel.AddChild(view)
 		panel.AddChild(RowPanel)
 		scrollPanelFill := widget.NewScrollPanelFill(panel)
@@ -214,11 +210,9 @@ func (c *CryptUI) Layout() *unison.Panel {
 				view.UpdateField(0, view.MetaData.Src)
 			},
 		)
-		RowPanel.AddChild(widget.NewVSpacer())
 		RowPanel.AddChild(panel1)
 
 		panel := widget.NewPanel()
-		panel.AddChild(widget.NewVSpacer())
 		panel.AddChild(view)
 		panel.AddChild(RowPanel)
 		scrollPanelFill := widget.NewScrollPanelFill(panel)
@@ -243,11 +237,9 @@ func (c *CryptUI) Layout() *unison.Panel {
 				view.UpdateField(0, view.MetaData.Src)
 			},
 		)
-		RowPanel.AddChild(widget.NewVSpacer())
 		RowPanel.AddChild(panel1)
 
 		panel := widget.NewPanel()
-		panel.AddChild(widget.NewVSpacer())
 		panel.AddChild(view)
 		panel.AddChild(RowPanel)
 		scrollPanelFill := widget.NewScrollPanelFill(panel)
@@ -272,11 +264,9 @@ func (c *CryptUI) Layout() *unison.Panel {
 				view.UpdateField(0, view.MetaData.Src)
 			},
 		)
-		RowPanel.AddChild(widget.NewVSpacer())
 		RowPanel.AddChild(panel1)
 
 		panel := widget.NewPanel()
-		panel.AddChild(widget.NewVSpacer())
 		panel.AddChild(view)
 		panel.AddChild(RowPanel)
 		scrollPanelFill := widget.NewScrollPanelFill(panel)
@@ -301,11 +291,9 @@ func (c *CryptUI) Layout() *unison.Panel {
 				view.UpdateField(0, view.MetaData.Src)
 			},
 		)
-		RowPanel.AddChild(widget.NewVSpacer())
 		RowPanel.AddChild(panel1)
 
 		panel := widget.NewPanel()
-		panel.AddChild(widget.NewVSpacer())
 		panel.AddChild(view)
 		panel.AddChild(RowPanel)
 		scrollPanelFill := widget.NewScrollPanelFill(panel)
@@ -330,11 +318,9 @@ func (c *CryptUI) Layout() *unison.Panel {
 				view.UpdateField(0, view.MetaData.Src)
 			},
 		)
-		RowPanel.AddChild(widget.NewVSpacer())
 		RowPanel.AddChild(panel1)
 
 		panel := widget.NewPanel()
-		panel.AddChild(widget.NewVSpacer())
 		panel.AddChild(view)
 		panel.AddChild(RowPanel)
 		scrollPanelFill := widget.NewScrollPanelFill(panel)
@@ -359,11 +345,9 @@ func (c *CryptUI) Layout() *unison.Panel {
 				view.UpdateField(0, view.MetaData.Src)
 			},
 		)
-		RowPanel.AddChild(widget.NewVSpacer())
 		RowPanel.AddChild(panel1)
 
 		panel := widget.NewPanel()
-		panel.AddChild(widget.NewVSpacer())
 		panel.AddChild(view)
 		panel.AddChild(RowPanel)
 		scrollPanelFill := widget.NewScrollPanelFill(panel)
@@ -388,11 +372,9 @@ func (c *CryptUI) Layout() *unison.Panel {
 				view.UpdateField(0, view.MetaData.Src)
 			},
 		)
-		RowPanel.AddChild(widget.NewVSpacer())
 		RowPanel.AddChild(panel1)
 
 		panel := widget.NewPanel()
-		panel.AddChild(widget.NewVSpacer())
 		panel.AddChild(view)
 		panel.AddChild(RowPanel)
 		scrollPanelFill := widget.NewScrollPanelFill(panel)
@@ -417,11 +399,9 @@ func (c *CryptUI) Layout() *unison.Panel {
 				view.UpdateField(0, view.MetaData.Src)
 			},
 		)
-		RowPanel.AddChild(widget.NewVSpacer())
 		RowPanel.AddChild(panel1)
 
 		panel := widget.NewPanel()
-		panel.AddChild(widget.NewVSpacer())
 		panel.AddChild(view)
 		panel.AddChild(RowPanel)
 		scrollPanelFill := widget.NewScrollPanelFill(panel)
@@ -446,11 +426,9 @@ func (c *CryptUI) Layout() *unison.Panel {
 				view.UpdateField(0, view.MetaData.Src)
 			},
 		)
-		RowPanel.AddChild(widget.NewVSpacer())
 		RowPanel.AddChild(panel1)
 
 		panel := widget.NewPanel()
-		panel.AddChild(widget.NewVSpacer())
 		panel.AddChild(view)
 		panel.AddChild(RowPanel)
 		scrollPanelFill := widget.NewScrollPanelFill(panel)
@@ -475,11 +453,9 @@ func (c *CryptUI) Layout() *unison.Panel {
 				view.UpdateField(0, view.MetaData.Src)
 			},
 		)
-		RowPanel.AddChild(widget.NewVSpacer())
 		RowPanel.AddChild(panel1)
 
 		panel := widget.NewPanel()
-		panel.AddChild(widget.NewVSpacer())
 		panel.AddChild(view)
 		panel.AddChild(RowPanel)
 		scrollPanelFill := widget.NewScrollPanelFill(panel)
@@ -504,11 +480,9 @@ func (c *CryptUI) Layout() *unison.Panel {
 				view.UpdateField(0, view.MetaData.Src)
 			},
 		)
-		RowPanel.AddChild(widget.NewVSpacer())
 		RowPanel.AddChild(panel1)
 
 		panel := widget.NewPanel()
-		panel.AddChild(widget.NewVSpacer())
 		panel.AddChild(view)
 		panel.AddChild(RowPanel)
 		scrollPanelFill := widget.NewScrollPanelFill(panel)
@@ -533,11 +507,9 @@ func (c *CryptUI) Layout() *unison.Panel {
 				view.UpdateField(0, view.MetaData.Src)
 			},
 		)
-		RowPanel.AddChild(widget.NewVSpacer())
 		RowPanel.AddChild(panel1)
 
 		panel := widget.NewPanel()
-		panel.AddChild(widget.NewVSpacer())
 		panel.AddChild(view)
 		panel.AddChild(RowPanel)
 		scrollPanelFill := widget.NewScrollPanelFill(panel)
@@ -562,11 +534,9 @@ func (c *CryptUI) Layout() *unison.Panel {
 				view.UpdateField(0, view.MetaData.Src)
 			},
 		)
-		RowPanel.AddChild(widget.NewVSpacer())
 		RowPanel.AddChild(panel1)
 
 		panel := widget.NewPanel()
-		panel.AddChild(widget.NewVSpacer())
 		panel.AddChild(view)
 		panel.AddChild(RowPanel)
 		scrollPanelFill := widget.NewScrollPanelFill(panel)
@@ -591,11 +561,9 @@ func (c *CryptUI) Layout() *unison.Panel {
 				view.UpdateField(0, view.MetaData.Src)
 			},
 		)
-		RowPanel.AddChild(widget.NewVSpacer())
 		RowPanel.AddChild(panel1)
 
 		panel := widget.NewPanel()
-		panel.AddChild(widget.NewVSpacer())
 		panel.AddChild(view)
 		panel.AddChild(RowPanel)
 		scrollPanelFill := widget.NewScrollPanelFill(panel)
@@ -620,11 +588,9 @@ func (c *CryptUI) Layout() *unison.Panel {
 				view.UpdateField(0, view.MetaData.Src)
 			},
 		)
-		RowPanel.AddChild(widget.NewVSpacer())
 		RowPanel.AddChild(panel1)
 
 		panel := widget.NewPanel()
-		panel.AddChild(widget.NewVSpacer())
 		panel.AddChild(view)
 		panel.AddChild(RowPanel)
 		scrollPanelFill := widget.NewScrollPanelFill(panel)
@@ -649,11 +615,9 @@ func (c *CryptUI) Layout() *unison.Panel {
 				view.UpdateField(0, view.MetaData.Src)
 			},
 		)
-		RowPanel.AddChild(widget.NewVSpacer())
 		RowPanel.AddChild(panel1)
 
 		panel := widget.NewPanel()
-		panel.AddChild(widget.NewVSpacer())
 		panel.AddChild(view)
 		panel.AddChild(RowPanel)
 		scrollPanelFill := widget.NewScrollPanelFill(panel)
@@ -678,11 +642,9 @@ func (c *CryptUI) Layout() *unison.Panel {
 				view.UpdateField(0, view.MetaData.Src)
 			},
 		)
-		RowPanel.AddChild(widget.NewVSpacer())
 		RowPanel.AddChild(panel1)
 
 		panel := widget.NewPanel()
-		panel.AddChild(widget.NewVSpacer())
 		panel.AddChild(view)
 		panel.AddChild(RowPanel)
 		scrollPanelFill := widget.NewScrollPanelFill(panel)
@@ -707,11 +669,9 @@ func (c *CryptUI) Layout() *unison.Panel {
 				view.UpdateField(0, view.MetaData.Src)
 			},
 		)
-		RowPanel.AddChild(widget.NewVSpacer())
 		RowPanel.AddChild(panel1)
 
 		panel := widget.NewPanel()
-		panel.AddChild(widget.NewVSpacer())
 		panel.AddChild(view)
 		panel.AddChild(RowPanel)
 		scrollPanelFill := widget.NewScrollPanelFill(panel)
@@ -736,11 +696,9 @@ func (c *CryptUI) Layout() *unison.Panel {
 				view.UpdateField(0, view.MetaData.Src)
 			},
 		)
-		RowPanel.AddChild(widget.NewVSpacer())
 		RowPanel.AddChild(panel1)
 
 		panel := widget.NewPanel()
-		panel.AddChild(widget.NewVSpacer())
 		panel.AddChild(view)
 		panel.AddChild(RowPanel)
 		scrollPanelFill := widget.NewScrollPanelFill(panel)
@@ -765,11 +723,9 @@ func (c *CryptUI) Layout() *unison.Panel {
 				view.UpdateField(0, view.MetaData.Src)
 			},
 		)
-		RowPanel.AddChild(widget.NewVSpacer())
 		RowPanel.AddChild(panel1)
 
 		panel := widget.NewPanel()
-		panel.AddChild(widget.NewVSpacer())
 		panel.AddChild(view)
 		panel.AddChild(RowPanel)
 		scrollPanelFill := widget.NewScrollPanelFill(panel)
@@ -794,11 +750,9 @@ func (c *CryptUI) Layout() *unison.Panel {
 				view.UpdateField(0, view.MetaData.Src)
 			},
 		)
-		RowPanel.AddChild(widget.NewVSpacer())
 		RowPanel.AddChild(panel1)
 
 		panel := widget.NewPanel()
-		panel.AddChild(widget.NewVSpacer())
 		panel.AddChild(view)
 		panel.AddChild(RowPanel)
 		scrollPanelFill := widget.NewScrollPanelFill(panel)
@@ -823,11 +777,9 @@ func (c *CryptUI) Layout() *unison.Panel {
 				view.UpdateField(0, view.MetaData.Src)
 			},
 		)
-		RowPanel.AddChild(widget.NewVSpacer())
 		RowPanel.AddChild(panel1)
 
 		panel := widget.NewPanel()
-		panel.AddChild(widget.NewVSpacer())
 		panel.AddChild(view)
 		panel.AddChild(RowPanel)
 		scrollPanelFill := widget.NewScrollPanelFill(panel)
