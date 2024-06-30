@@ -543,21 +543,43 @@ func (c *CryptUI) Layout() *unison.Panel {
 		return scrollPanelFill
 	})
 	layouts.Set(HashAllKind, func() unison.Paneler {
-		view, RowPanel := widget.NewStructView(SrcKeyDstdData{}, func(data SrcKeyDstdData) (values []widget.CellData) {
-			return []widget.CellData{{Text: data.Src}, {Text: data.Key}, {Text: data.Dst}}
+		view, RowPanel := widget.NewStructView(HashData{}, func(data HashData) (values []widget.CellData) {
+			return []widget.CellData{
+				/*
+							Src    string
+					Md2    string
+					Md4    string
+					Md5    string
+					Sha1   string
+					Sha224 string
+					Sha256 string
+					Sha384 string
+					Sha512 string
+
+				*/
+				{Text: data.Src},
+				{Text: data.Md2},
+				{Text: data.Md4},
+				{Text: data.Md5},
+				{Text: data.Sha1},
+				{Text: data.Sha224},
+				{Text: data.Sha256},
+				{Text: data.Sha384},
+				{Text: data.Sha512},
+			}
 		})
 		panel1 := widget.NewButtonsPanel(
 			[]string{"encode", "decode"},
 			func() {
 				view.MetaData.Src = view.Editors[0].Label.String()
-				view.MetaData.Key = view.Editors[1].Label.String()
-				view.MetaData.Dst = string(aes.Encrypt(stream.HexString(view.MetaData.Src), stream.HexString(view.MetaData.Key)).HexString())
-				view.UpdateField(2, view.MetaData.Dst)
+				// view.MetaData.Key = view.Editors[1].Label.String()
+				// view.MetaData.Dst = string(aes.Encrypt(stream.HexString(view.MetaData.Src), stream.HexString(view.MetaData.Key)).HexString())
+				// view.UpdateField(2, view.MetaData.Dst)
 			},
 			func() {
-				view.MetaData.Dst = view.Editors[2].Label.String()
-				view.MetaData.Key = view.Editors[1].Label.String()
-				view.MetaData.Src = string(aes.Decrypt(stream.HexString(view.MetaData.Src), stream.HexString(view.MetaData.Key)).HexString())
+				// view.MetaData.Dst = view.Editors[2].Label.String()
+				// view.MetaData.Key = view.Editors[1].Label.String()
+				// view.MetaData.Src = string(aes.Decrypt(stream.HexString(view.MetaData.Src), stream.HexString(view.MetaData.Key)).HexString())
 				view.UpdateField(0, view.MetaData.Src)
 			},
 		)
@@ -791,7 +813,7 @@ func (c *CryptUI) Layout() *unison.Panel {
 	splitPanel.AddChild(left)
 	splitPanel.AddChild(right)
 
-	//todo get and set inputted ctx,not clean it every time
+	// todo get and set inputted ctx,not clean it every time
 	table.SelectionChangedCallback = func() {
 		for i, n := range table.SelectedRows(false) {
 			if i > 1 {
