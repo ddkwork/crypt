@@ -354,22 +354,40 @@ func (c *CryptUI) Layout() *unison.Panel {
 		return scrollPanelFill
 	})
 	layouts.Set(RsaKind, func() unison.Paneler {
-		view, RowPanel := widget.NewStructView(SrcKeyDstdData{}, func(data SrcKeyDstdData) (values []widget.CellData) {
-			return []widget.CellData{{Text: data.Src}, {Text: data.Key}, {Text: data.Dst}}
+		view, RowPanel := widget.NewStructView(RsaData{}, func(data RsaData) (values []widget.CellData) {
+			/*
+				P string
+				Q string
+				E string
+				N string
+				D string
+				M string
+				C string
+
+			*/
+			return []widget.CellData{
+				{Text: data.P},
+				{Text: data.Q},
+				{Text: data.E},
+				{Text: data.N},
+				{Text: data.D},
+				{Text: data.M},
+				{Text: data.C},
+			}
 		})
 		panel1 := widget.NewButtonsPanel(
 			[]string{"encode", "decode"},
 			func() {
-				view.MetaData.Src = view.Editors[0].Label.String()
-				view.MetaData.Key = view.Editors[1].Label.String()
-				view.MetaData.Dst = string(aes.Encrypt(stream.HexString(view.MetaData.Src), stream.HexString(view.MetaData.Key)).HexString())
-				view.UpdateField(2, view.MetaData.Dst)
+				// view.MetaData.Src = view.Editors[0].Label.String()
+				// view.MetaData.Key = view.Editors[1].Label.String()
+				// view.MetaData.Dst = string(aes.Encrypt(stream.HexString(view.MetaData.Src), stream.HexString(view.MetaData.Key)).HexString())
+				view.UpdateField(2, view.MetaData.C)
 			},
 			func() {
-				view.MetaData.Dst = view.Editors[2].Label.String()
-				view.MetaData.Key = view.Editors[1].Label.String()
-				view.MetaData.Src = string(aes.Decrypt(stream.HexString(view.MetaData.Src), stream.HexString(view.MetaData.Key)).HexString())
-				view.UpdateField(0, view.MetaData.Src)
+				// view.MetaData.Dst = view.Editors[2].Label.String()
+				// view.MetaData.Key = view.Editors[1].Label.String()
+				// view.MetaData.Src = string(aes.Decrypt(stream.HexString(view.MetaData.Src), stream.HexString(view.MetaData.Key)).HexString())
+				view.UpdateField(0, view.MetaData.M)
 			},
 		)
 		RowPanel.AddChild(panel1)
