@@ -33,7 +33,7 @@ type (
 	CryptTable struct {
 		Name CryptNameKind
 	}
-	skdData struct {
+	SrcKeyDstdData struct {
 		Src string
 		Key string
 		Dst string
@@ -131,7 +131,7 @@ func (c *CryptUI) Layout() *unison.Panel {
 	left := widget.NewTableScrollPanel(table, header)
 	layouts := orderedmap.New(InvalidCryptNameKind, func() unison.Paneler { return widget.NewPanel() })
 	layouts.Set(AesKind, func() unison.Paneler {
-		view, RowPanel := widget.NewStructView(skdData{}, func(data skdData) (values []widget.CellData) {
+		view, RowPanel := widget.NewStructView(SrcKeyDstdData{}, func(data SrcKeyDstdData) (values []widget.CellData) {
 			return []widget.CellData{{Text: data.Src}, {Text: data.Key}, {Text: data.Dst}}
 		})
 		panel1 := widget.NewButtonsPanel(
@@ -165,7 +165,7 @@ func (c *CryptUI) Layout() *unison.Panel {
 		return scrollPanelFill
 	})
 	layouts.Set(DesKind, func() unison.Paneler {
-		view, RowPanel := widget.NewStructView(skdData{}, func(data skdData) (values []widget.CellData) {
+		view, RowPanel := widget.NewStructView(SrcKeyDstdData{}, func(data SrcKeyDstdData) (values []widget.CellData) {
 			return []widget.CellData{{Text: data.Src}, {Text: data.Key}, {Text: data.Dst}}
 		})
 		panel1 := widget.NewButtonsPanel(
@@ -192,7 +192,7 @@ func (c *CryptUI) Layout() *unison.Panel {
 		return scrollPanelFill
 	})
 	layouts.Set(Des3Kind, func() unison.Paneler {
-		view, RowPanel := widget.NewStructView(skdData{}, func(data skdData) (values []widget.CellData) {
+		view, RowPanel := widget.NewStructView(SrcKeyDstdData{}, func(data SrcKeyDstdData) (values []widget.CellData) {
 			return []widget.CellData{{Text: data.Src}, {Text: data.Key}, {Text: data.Dst}}
 		})
 		panel1 := widget.NewButtonsPanel(
@@ -219,7 +219,7 @@ func (c *CryptUI) Layout() *unison.Panel {
 		return scrollPanelFill
 	})
 	layouts.Set(TeaKind, func() unison.Paneler {
-		view, RowPanel := widget.NewStructView(skdData{}, func(data skdData) (values []widget.CellData) {
+		view, RowPanel := widget.NewStructView(SrcKeyDstdData{}, func(data SrcKeyDstdData) (values []widget.CellData) {
 			return []widget.CellData{{Text: data.Src}, {Text: data.Key}, {Text: data.Dst}}
 		})
 		panel1 := widget.NewButtonsPanel(
@@ -246,7 +246,7 @@ func (c *CryptUI) Layout() *unison.Panel {
 		return scrollPanelFill
 	})
 	layouts.Set(BlowfishKind, func() unison.Paneler {
-		view, RowPanel := widget.NewStructView(skdData{}, func(data skdData) (values []widget.CellData) {
+		view, RowPanel := widget.NewStructView(SrcKeyDstdData{}, func(data SrcKeyDstdData) (values []widget.CellData) {
 			return []widget.CellData{{Text: data.Src}, {Text: data.Key}, {Text: data.Dst}}
 		})
 		panel1 := widget.NewButtonsPanel(
@@ -273,7 +273,7 @@ func (c *CryptUI) Layout() *unison.Panel {
 		return scrollPanelFill
 	})
 	layouts.Set(TwoFishKind, func() unison.Paneler {
-		view, RowPanel := widget.NewStructView(skdData{}, func(data skdData) (values []widget.CellData) {
+		view, RowPanel := widget.NewStructView(SrcKeyDstdData{}, func(data SrcKeyDstdData) (values []widget.CellData) {
 			return []widget.CellData{{Text: data.Src}, {Text: data.Key}, {Text: data.Dst}}
 		})
 		panel1 := widget.NewButtonsPanel(
@@ -300,7 +300,7 @@ func (c *CryptUI) Layout() *unison.Panel {
 		return scrollPanelFill
 	})
 	layouts.Set(Rc4Kind, func() unison.Paneler {
-		view, RowPanel := widget.NewStructView(skdData{}, func(data skdData) (values []widget.CellData) {
+		view, RowPanel := widget.NewStructView(SrcKeyDstdData{}, func(data SrcKeyDstdData) (values []widget.CellData) {
 			return []widget.CellData{{Text: data.Src}, {Text: data.Key}, {Text: data.Dst}}
 		})
 		panel1 := widget.NewButtonsPanel(
@@ -327,7 +327,7 @@ func (c *CryptUI) Layout() *unison.Panel {
 		return scrollPanelFill
 	})
 	layouts.Set(Rc2Kind, func() unison.Paneler {
-		view, RowPanel := widget.NewStructView(skdData{}, func(data skdData) (values []widget.CellData) {
+		view, RowPanel := widget.NewStructView(SrcKeyDstdData{}, func(data SrcKeyDstdData) (values []widget.CellData) {
 			return []widget.CellData{{Text: data.Src}, {Text: data.Key}, {Text: data.Dst}}
 		})
 		panel1 := widget.NewButtonsPanel(
@@ -354,7 +354,7 @@ func (c *CryptUI) Layout() *unison.Panel {
 		return scrollPanelFill
 	})
 	layouts.Set(RsaKind, func() unison.Paneler {
-		view, RowPanel := widget.NewStructView(skdData{}, func(data skdData) (values []widget.CellData) {
+		view, RowPanel := widget.NewStructView(SrcKeyDstdData{}, func(data SrcKeyDstdData) (values []widget.CellData) {
 			return []widget.CellData{{Text: data.Src}, {Text: data.Key}, {Text: data.Dst}}
 		})
 		panel1 := widget.NewButtonsPanel(
@@ -381,7 +381,7 @@ func (c *CryptUI) Layout() *unison.Panel {
 		return scrollPanelFill
 	})
 	layouts.Set(EccKind, func() unison.Paneler {
-		view, RowPanel := widget.NewStructView(skdData{}, func(data skdData) (values []widget.CellData) {
+		view, RowPanel := widget.NewStructView(SrcKeyDstdData{}, func(data SrcKeyDstdData) (values []widget.CellData) {
 			return []widget.CellData{{Text: data.Src}, {Text: data.Key}, {Text: data.Dst}}
 		})
 		panel1 := widget.NewButtonsPanel(
@@ -408,7 +408,7 @@ func (c *CryptUI) Layout() *unison.Panel {
 		return scrollPanelFill
 	})
 	layouts.Set(DsaKind, func() unison.Paneler {
-		view, RowPanel := widget.NewStructView(skdData{}, func(data skdData) (values []widget.CellData) {
+		view, RowPanel := widget.NewStructView(SrcKeyDstdData{}, func(data SrcKeyDstdData) (values []widget.CellData) {
 			return []widget.CellData{{Text: data.Src}, {Text: data.Key}, {Text: data.Dst}}
 		})
 		panel1 := widget.NewButtonsPanel(
@@ -435,7 +435,7 @@ func (c *CryptUI) Layout() *unison.Panel {
 		return scrollPanelFill
 	})
 	layouts.Set(PgpKind, func() unison.Paneler {
-		view, RowPanel := widget.NewStructView(skdData{}, func(data skdData) (values []widget.CellData) {
+		view, RowPanel := widget.NewStructView(SrcKeyDstdData{}, func(data SrcKeyDstdData) (values []widget.CellData) {
 			return []widget.CellData{{Text: data.Src}, {Text: data.Key}, {Text: data.Dst}}
 		})
 		panel1 := widget.NewButtonsPanel(
@@ -462,7 +462,7 @@ func (c *CryptUI) Layout() *unison.Panel {
 		return scrollPanelFill
 	})
 	layouts.Set(Sm4Kind, func() unison.Paneler {
-		view, RowPanel := widget.NewStructView(skdData{}, func(data skdData) (values []widget.CellData) {
+		view, RowPanel := widget.NewStructView(SrcKeyDstdData{}, func(data SrcKeyDstdData) (values []widget.CellData) {
 			return []widget.CellData{{Text: data.Src}, {Text: data.Key}, {Text: data.Dst}}
 		})
 		panel1 := widget.NewButtonsPanel(
@@ -489,7 +489,7 @@ func (c *CryptUI) Layout() *unison.Panel {
 		return scrollPanelFill
 	})
 	layouts.Set(Sm2Kind, func() unison.Paneler {
-		view, RowPanel := widget.NewStructView(skdData{}, func(data skdData) (values []widget.CellData) {
+		view, RowPanel := widget.NewStructView(SrcKeyDstdData{}, func(data SrcKeyDstdData) (values []widget.CellData) {
 			return []widget.CellData{{Text: data.Src}, {Text: data.Key}, {Text: data.Dst}}
 		})
 		panel1 := widget.NewButtonsPanel(
@@ -516,7 +516,7 @@ func (c *CryptUI) Layout() *unison.Panel {
 		return scrollPanelFill
 	})
 	layouts.Set(HmacKind, func() unison.Paneler {
-		view, RowPanel := widget.NewStructView(skdData{}, func(data skdData) (values []widget.CellData) {
+		view, RowPanel := widget.NewStructView(SrcKeyDstdData{}, func(data SrcKeyDstdData) (values []widget.CellData) {
 			return []widget.CellData{{Text: data.Src}, {Text: data.Key}, {Text: data.Dst}}
 		})
 		panel1 := widget.NewButtonsPanel(
@@ -543,7 +543,7 @@ func (c *CryptUI) Layout() *unison.Panel {
 		return scrollPanelFill
 	})
 	layouts.Set(HashAllKind, func() unison.Paneler {
-		view, RowPanel := widget.NewStructView(skdData{}, func(data skdData) (values []widget.CellData) {
+		view, RowPanel := widget.NewStructView(SrcKeyDstdData{}, func(data SrcKeyDstdData) (values []widget.CellData) {
 			return []widget.CellData{{Text: data.Src}, {Text: data.Key}, {Text: data.Dst}}
 		})
 		panel1 := widget.NewButtonsPanel(
@@ -570,7 +570,7 @@ func (c *CryptUI) Layout() *unison.Panel {
 		return scrollPanelFill
 	})
 	layouts.Set(Base64Kind, func() unison.Paneler {
-		view, RowPanel := widget.NewStructView(skdData{}, func(data skdData) (values []widget.CellData) {
+		view, RowPanel := widget.NewStructView(SrcKeyDstdData{}, func(data SrcKeyDstdData) (values []widget.CellData) {
 			return []widget.CellData{{Text: data.Src}, {Text: data.Key}, {Text: data.Dst}}
 		})
 		panel1 := widget.NewButtonsPanel(
@@ -597,7 +597,7 @@ func (c *CryptUI) Layout() *unison.Panel {
 		return scrollPanelFill
 	})
 	layouts.Set(Base32Kind, func() unison.Paneler {
-		view, RowPanel := widget.NewStructView(skdData{}, func(data skdData) (values []widget.CellData) {
+		view, RowPanel := widget.NewStructView(SrcKeyDstdData{}, func(data SrcKeyDstdData) (values []widget.CellData) {
 			return []widget.CellData{{Text: data.Src}, {Text: data.Key}, {Text: data.Dst}}
 		})
 		panel1 := widget.NewButtonsPanel(
@@ -624,7 +624,7 @@ func (c *CryptUI) Layout() *unison.Panel {
 		return scrollPanelFill
 	})
 	layouts.Set(GzipKind, func() unison.Paneler {
-		view, RowPanel := widget.NewStructView(skdData{}, func(data skdData) (values []widget.CellData) {
+		view, RowPanel := widget.NewStructView(SrcKeyDstdData{}, func(data SrcKeyDstdData) (values []widget.CellData) {
 			return []widget.CellData{{Text: data.Src}, {Text: data.Key}, {Text: data.Dst}}
 		})
 		panel1 := widget.NewButtonsPanel(
@@ -651,7 +651,7 @@ func (c *CryptUI) Layout() *unison.Panel {
 		return scrollPanelFill
 	})
 	layouts.Set(TrimSpaceKind, func() unison.Paneler {
-		view, RowPanel := widget.NewStructView(skdData{}, func(data skdData) (values []widget.CellData) {
+		view, RowPanel := widget.NewStructView(SrcKeyDstdData{}, func(data SrcKeyDstdData) (values []widget.CellData) {
 			return []widget.CellData{{Text: data.Src}, {Text: data.Key}, {Text: data.Dst}}
 		})
 		panel1 := widget.NewButtonsPanel(
@@ -678,7 +678,7 @@ func (c *CryptUI) Layout() *unison.Panel {
 		return scrollPanelFill
 	})
 	layouts.Set(SwapKind, func() unison.Paneler {
-		view, RowPanel := widget.NewStructView(skdData{}, func(data skdData) (values []widget.CellData) {
+		view, RowPanel := widget.NewStructView(SrcKeyDstdData{}, func(data SrcKeyDstdData) (values []widget.CellData) {
 			return []widget.CellData{{Text: data.Src}, {Text: data.Key}, {Text: data.Dst}}
 		})
 		panel1 := widget.NewButtonsPanel(
@@ -705,7 +705,7 @@ func (c *CryptUI) Layout() *unison.Panel {
 		return scrollPanelFill
 	})
 	layouts.Set(RequestHeaderKind, func() unison.Paneler {
-		view, RowPanel := widget.NewStructView(skdData{}, func(data skdData) (values []widget.CellData) {
+		view, RowPanel := widget.NewStructView(SrcKeyDstdData{}, func(data SrcKeyDstdData) (values []widget.CellData) {
 			return []widget.CellData{{Text: data.Src}, {Text: data.Key}, {Text: data.Dst}}
 		})
 		panel1 := widget.NewButtonsPanel(
@@ -732,7 +732,7 @@ func (c *CryptUI) Layout() *unison.Panel {
 		return scrollPanelFill
 	})
 	layouts.Set(TimeStampKind, func() unison.Paneler {
-		view, RowPanel := widget.NewStructView(skdData{}, func(data skdData) (values []widget.CellData) {
+		view, RowPanel := widget.NewStructView(SrcKeyDstdData{}, func(data SrcKeyDstdData) (values []widget.CellData) {
 			return []widget.CellData{{Text: data.Src}, {Text: data.Key}, {Text: data.Dst}}
 		})
 		panel1 := widget.NewButtonsPanel(
@@ -759,7 +759,7 @@ func (c *CryptUI) Layout() *unison.Panel {
 		return scrollPanelFill
 	})
 	layouts.Set(Base64Kind, func() unison.Paneler {
-		view, RowPanel := widget.NewStructView(skdData{}, func(data skdData) (values []widget.CellData) {
+		view, RowPanel := widget.NewStructView(SrcKeyDstdData{}, func(data SrcKeyDstdData) (values []widget.CellData) {
 			return []widget.CellData{{Text: data.Src}, {Text: data.Key}, {Text: data.Dst}}
 		})
 		panel1 := widget.NewButtonsPanel(
@@ -791,6 +791,7 @@ func (c *CryptUI) Layout() *unison.Panel {
 	splitPanel.AddChild(left)
 	splitPanel.AddChild(right)
 
+	//todo get and set inputted ctx,not clean it every time
 	table.SelectionChangedCallback = func() {
 		for i, n := range table.SelectedRows(false) {
 			if i > 1 {
