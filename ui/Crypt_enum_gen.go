@@ -56,7 +56,6 @@ func (k CryptKind) Keys() []string {
 		"Hash",
 		"Encoding",
 		"Tool",
-		"InvalidCryptKind",
 	}
 }
 
@@ -67,7 +66,6 @@ func (k CryptKind) Kinds() []CryptKind {
 		HashKind,
 		EncodingKind,
 		ToolKind,
-		InvalidCryptKind,
 	}
 }
 

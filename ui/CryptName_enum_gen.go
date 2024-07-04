@@ -128,7 +128,6 @@ func (k CryptNameKind) Keys() []string {
 		"Swap",
 		"RequestHeader",
 		"TimeStamp",
-		"InvalidCryptNameKind",
 	}
 }
 
@@ -157,7 +156,6 @@ func (k CryptNameKind) Kinds() []CryptNameKind {
 		SwapKind,
 		RequestHeaderKind,
 		TimeStampKind,
-		InvalidCryptNameKind,
 	}
 }
 
