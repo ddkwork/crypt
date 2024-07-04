@@ -1,9 +1,6 @@
 package main
 
 import (
-	"strconv"
-	"strings"
-
 	"github.com/ddkwork/app"
 	"github.com/ddkwork/app/widget"
 	"github.com/ddkwork/crypt/src/aes"
@@ -66,11 +63,7 @@ func (c *CryptUI) Layout() *unison.Panel {
 		MarshalRow: func(node *widget.Node[CryptTable]) (cells []widget.CellData) {
 			name := node.Data.Name.String()
 			if node.Container() {
-				name = node.Type
-				name = strings.TrimSuffix(name, widget.ContainerKeyPostfix)
-				name += " ("
-				name += strconv.Itoa(node.LenChildren())
-				name += ")"
+				name = node.Sum(name)
 			}
 			return []widget.CellData{{Text: name}}
 		},
