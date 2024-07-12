@@ -67,8 +67,12 @@ func (c *CryptUI) Layout() *unison.Panel {
 			}
 			return []widget.CellData{{Text: name}}
 		},
-		UnmarshalRow:             nil,
-		SelectionChangedCallback: nil,
+		UnmarshalRow: func(node *widget.Node[CryptTable], values []string) {
+			mylog.Todo("unmarshal row")
+		},
+		SelectionChangedCallback: func(root *widget.Node[CryptTable]) {
+			mylog.Todo("selection changed callback")
+		},
 		SetRootRowsCallBack: func(root *widget.Node[CryptTable]) {
 			for _, kind := range InvalidCryptKind.Kinds() {
 				switch kind {
