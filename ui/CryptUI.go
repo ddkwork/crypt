@@ -63,7 +63,7 @@ func (c *CryptUI) Layout() *unison.Panel {
 		MarshalRow: func(node *widget.Node[CryptTable]) (cells []widget.CellData) {
 			name := node.Data.Name.String()
 			if node.Container() {
-				name = node.Sum(name)
+				name = node.Sum()
 			}
 			return []widget.CellData{{Text: name}}
 		},
