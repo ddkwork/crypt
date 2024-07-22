@@ -3,11 +3,11 @@ module github.com/ddkwork/crypt
 go 1.22.5
 
 require (
-	github.com/ddkwork/golibrary v0.0.0-20240720085141-1b713cf9e19e
+	github.com/ddkwork/golibrary v0.0.0-20240720085616-a8fa39506c43
 	github.com/dop251/goja v0.0.0-20240610225006-393f6d42497b
 	github.com/richardwilkes/unison v0.71.0
 	github.com/stretchr/testify v1.9.0
-	golang.org/x/crypto v0.24.0
+	golang.org/x/crypto v0.25.0
 	golang.org/x/exp v0.0.0-20240719175910-8a7402abbf56
 )
 
@@ -28,10 +28,10 @@ require (
 	github.com/mattn/go-isatty v0.0.20 // indirect
 	github.com/pkg/term v1.2.0-beta.2 // indirect
 	github.com/pmezard/go-difflib v1.0.1-0.20181226105442-5d4384ee4fb2 // indirect
-	github.com/richardwilkes/json v0.2.0 // indirect
-	github.com/richardwilkes/toolbox v1.114.1 // indirect
+	github.com/richardwilkes/json v0.3.0 // indirect
+	github.com/richardwilkes/toolbox v1.114.2 // indirect
 	github.com/rivo/uniseg v0.4.7 // indirect
-	github.com/yuin/goldmark v1.7.2 // indirect
+	github.com/yuin/goldmark v1.7.4 // indirect
 	golang.org/x/image v0.18.0 // indirect
 	golang.org/x/mod v0.19.0 // indirect
 	golang.org/x/sys v0.22.0 // indirect
