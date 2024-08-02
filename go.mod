@@ -3,7 +3,7 @@ module github.com/ddkwork/crypt
 go 1.23
 
 require (
-	github.com/ddkwork/golibrary v0.0.0-20240801140004-6e106cd76a32
+	github.com/ddkwork/golibrary v0.0.0-20240802082739-ae4f0bcd4079
 	github.com/dop251/goja v0.0.0-20240610225006-393f6d42497b
 	github.com/richardwilkes/unison v0.71.0
 	github.com/stretchr/testify v1.9.0
