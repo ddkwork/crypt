@@ -29,7 +29,7 @@ require (
 	github.com/pkg/term v1.2.0-beta.2 // indirect
 	github.com/pmezard/go-difflib v1.0.1-0.20181226105442-5d4384ee4fb2 // indirect
 	github.com/richardwilkes/json v0.3.0 // indirect
-	github.com/richardwilkes/toolbox v1.114.2 // indirect
+	github.com/richardwilkes/toolbox v1.99.0 // indirect
 	github.com/rivo/uniseg v0.4.7 // indirect
 	github.com/yuin/goldmark v1.7.4 // indirect
 	golang.org/x/image v0.18.0 // indirect
