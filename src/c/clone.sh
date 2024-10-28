@@ -1,0 +1,1 @@
+git clone https://hub.fastgit.org/golang/crypto.git
