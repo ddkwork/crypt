@@ -18,7 +18,7 @@ func Encrypt[T stream.Type](src, key T) (dst *stream.Buffer) {
 		mylog.Struct(EncryptInfo{
 			Src:   s.Bytes(),
 			Key:   k.Bytes(),
-			Data:  dst.Bytes(),
+			Dst:   dst.Bytes(),
 			Count: encryptCount,
 		})
 	}()
@@ -36,7 +36,7 @@ func Decrypt[T stream.Type](src, key T) (dst *stream.Buffer) {
 		mylog.Struct(DecryptInfo{
 			Src:   s.Bytes(),
 			Key:   k.Bytes(),
-			Data:  dst.Bytes(),
+			Dst:   dst.Bytes(),
 			Count: decryptCount,
 		})
 	}()
@@ -49,19 +49,19 @@ func Decrypt[T stream.Type](src, key T) (dst *stream.Buffer) {
 type DecryptInfo struct {
 	Src   []byte
 	Key   Key
-	Data  []byte
+	Dst   []byte
 	Count int
 }
 
 type EncryptInfo struct {
 	Src   []byte
 	Key   Key
-	Data  []byte
+	Dst   []byte
 	Count int
 }
 
 type Key []byte
 
-func (k Key) String() string { //让mylog.Struct统一慢慢反射，一劳永逸，这就是接口的力量
+func (k Key) String() string { // 让mylog.Struct统一慢慢反射，一劳永逸，这就是接口的力量
 	return string(k)
 }
