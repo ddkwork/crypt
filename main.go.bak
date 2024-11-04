@@ -217,7 +217,7 @@ func main() {
 			Sha384: hash.Sha384(src),
 			Sha512: hash.Sha512(src),
 		}
-		mylog.Struct(hashData)
+		mylog.Struct("todo",hashData)
 		hashStructView.Update()
 	})
 
