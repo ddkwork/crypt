@@ -3,8 +3,8 @@ package des
 import (
 	"testing"
 
+	"github.com/ddkwork/golibrary/assert"
 	"github.com/ddkwork/golibrary/stream"
-	"github.com/stretchr/testify/assert"
 )
 
 func TestBug(t *testing.T) {

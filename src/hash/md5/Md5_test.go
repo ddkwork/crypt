@@ -5,7 +5,7 @@ import (
 
 	"github.com/ddkwork/golibrary/stream"
 
-	"github.com/stretchr/testify/assert"
+	"github.com/ddkwork/golibrary/assert"
 )
 
 func TestMD5(t *testing.T) {

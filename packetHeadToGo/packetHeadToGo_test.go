@@ -4,8 +4,8 @@ import (
 	_ "embed"
 	"testing"
 
+	"github.com/ddkwork/golibrary/assert"
 	"github.com/ddkwork/golibrary/mylog"
-	"github.com/stretchr/testify/assert"
 )
 
 //go:embed 1.bin
