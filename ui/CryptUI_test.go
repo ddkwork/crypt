@@ -9,13 +9,14 @@ import (
 func TestName(t *testing.T) {
 	t.Skip()
 	g := stream.NewGeneratedFile()
-	g.EnumTypes("Crypt", []string{
-		"Symmetry",
-		"Asymmetrical",
-		"Hash",
-		"Encoding",
-		"Tool",
-	}, nil)
+	m := stream.NewOrderedMapFromPairs([]stream.Pair[string, string]{
+		{Key: "Symmetry", Value: "symmetry"},
+		{Key: "Asymmetrical", Value: "asymmetrical"},
+		{Key: "Hash", Value: "hash"},
+		{Key: "Encoding", Value: "encoding"},
+		{Key: "Tool", Value: "tool"},
+	})
+	g.EnumTypes("Crypt", m)
 	g.EnumTypes("CryptName", []string{
 		"Aes",
 		"Des",
