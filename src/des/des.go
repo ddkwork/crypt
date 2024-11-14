@@ -15,7 +15,7 @@ func Encrypt[T stream.Type](src, key T) (dst *stream.Buffer) {
 	k := stream.NewBuffer(key)
 	encryptCount++
 	defer func() {
-		mylog.Struct("todo", EncryptInfo{
+		mylog.Struct("Encrypt", EncryptInfo{
 			Src:   s.Bytes(),
 			Key:   k.Bytes(),
 			Dst:   dst.Bytes(),
@@ -33,7 +33,7 @@ func Decrypt[T stream.Type](src, key T) (dst *stream.Buffer) {
 	k := stream.NewBuffer(key)
 	decryptCount++
 	defer func() {
-		mylog.Struct("todo", DecryptInfo{
+		mylog.Struct("Decrypt", DecryptInfo{
 			Src:   s.Bytes(),
 			Key:   k.Bytes(),
 			Dst:   dst.Bytes(),
