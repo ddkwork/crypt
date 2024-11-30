@@ -7,6 +7,7 @@ import (
 	"github.com/ddkwork/golibrary/mylog"
 	"github.com/ddkwork/golibrary/stream"
 	"github.com/ddkwork/unison"
+	"github.com/goradd/maps"
 )
 
 func main() {
@@ -125,7 +126,7 @@ func (c *CryptUI) Layout() *unison.Panel {
 	widget.SetScrollLayout(splitPanel, 2)
 
 	left := widget.NewTableScrollPanel(table, header)
-	layouts := stream.NewOrderedMap(InvalidCryptNameKind, func() unison.Paneler { return widget.NewPanel() })
+	layouts := new(maps.SafeSliceMap[CryptNameKind, func() unison.Paneler])
 	layouts.Set(AesKind, func() unison.Paneler {
 		view, RowPanel := widget.NewStructView(SrcKeyDstdData{}, func(data SrcKeyDstdData) (values []widget.CellData) {
 			return []widget.CellData{{Text: data.Src}, {Text: data.Key}, {Text: data.Dst}}
@@ -823,7 +824,7 @@ func (c *CryptUI) Layout() *unison.Panel {
 	})
 
 	right := widget.NewPanel()
-	right.AddChild(mylog.Check2Bool(layouts.Get(AesKind))()) // todo make a welcoming page
+	right.AddChild((layouts.Get(AesKind))()) // todo make a welcoming page
 	splitPanel.AddChild(left)
 	splitPanel.AddChild(right)
 
@@ -836,117 +837,117 @@ func (c *CryptUI) Layout() *unison.Panel {
 			switch n.Data.Name {
 			case AesKind:
 				right.RemoveAllChildren()
-				paneler := mylog.Check2Bool(layouts.Get(AesKind))()
+				paneler := (layouts.Get(AesKind))()
 				right.AddChild(paneler)
 				splitPanel.AddChild(right)
 			case DesKind:
 				right.RemoveAllChildren()
-				paneler := mylog.Check2Bool(layouts.Get(DesKind))()
+				paneler := (layouts.Get(DesKind))()
 				right.AddChild(paneler)
 				splitPanel.AddChild(right)
 			case Des3Kind:
 				right.RemoveAllChildren()
-				paneler := mylog.Check2Bool(layouts.Get(Des3Kind))()
+				paneler := (layouts.Get(Des3Kind))()
 				right.AddChild(paneler)
 				splitPanel.AddChild(right)
 			case TeaKind:
 				right.RemoveAllChildren()
-				paneler := mylog.Check2Bool(layouts.Get(TeaKind))()
+				paneler := (layouts.Get(TeaKind))()
 				right.AddChild(paneler)
 				splitPanel.AddChild(right)
 			case BlowfishKind:
 				right.RemoveAllChildren()
-				paneler := mylog.Check2Bool(layouts.Get(BlowfishKind))()
+				paneler := (layouts.Get(BlowfishKind))()
 				right.AddChild(paneler)
 				splitPanel.AddChild(right)
 			case TwoFishKind:
 				right.RemoveAllChildren()
-				paneler := mylog.Check2Bool(layouts.Get(TwoFishKind))()
+				paneler := (layouts.Get(TwoFishKind))()
 				right.AddChild(paneler)
 				splitPanel.AddChild(right)
 			case Rc4Kind:
 				right.RemoveAllChildren()
-				paneler := mylog.Check2Bool(layouts.Get(Rc4Kind))()
+				paneler := (layouts.Get(Rc4Kind))()
 				right.AddChild(paneler)
 				splitPanel.AddChild(right)
 			case Rc2Kind:
 				right.RemoveAllChildren()
-				paneler := mylog.Check2Bool(layouts.Get(Rc2Kind))()
+				paneler := (layouts.Get(Rc2Kind))()
 				right.AddChild(paneler)
 				splitPanel.AddChild(right)
 			case RsaKind:
 				right.RemoveAllChildren()
-				paneler := mylog.Check2Bool(layouts.Get(RsaKind))()
+				paneler := (layouts.Get(RsaKind))()
 				right.AddChild(paneler)
 				splitPanel.AddChild(right)
 			case EccKind:
 				right.RemoveAllChildren()
-				paneler := mylog.Check2Bool(layouts.Get(EccKind))()
+				paneler := (layouts.Get(EccKind))()
 				right.AddChild(paneler)
 				splitPanel.AddChild(right)
 			case DsaKind:
 				right.RemoveAllChildren()
-				paneler := mylog.Check2Bool(layouts.Get(DsaKind))()
+				paneler := (layouts.Get(DsaKind))()
 				right.AddChild(paneler)
 				splitPanel.AddChild(right)
 			case PgpKind:
 				right.RemoveAllChildren()
-				paneler := mylog.Check2Bool(layouts.Get(PgpKind))()
+				paneler := (layouts.Get(PgpKind))()
 				right.AddChild(paneler)
 				splitPanel.AddChild(right)
 			case Sm4Kind:
 				right.RemoveAllChildren()
-				paneler := mylog.Check2Bool(layouts.Get(Sm4Kind))()
+				paneler := (layouts.Get(Sm4Kind))()
 				right.AddChild(paneler)
 				splitPanel.AddChild(right)
 			case Sm2Kind:
 				right.RemoveAllChildren()
-				paneler := mylog.Check2Bool(layouts.Get(Sm2Kind))()
+				paneler := (layouts.Get(Sm2Kind))()
 				right.AddChild(paneler)
 				splitPanel.AddChild(right)
 			case HmacKind:
 				right.RemoveAllChildren()
-				paneler := mylog.Check2Bool(layouts.Get(HmacKind))()
+				paneler := (layouts.Get(HmacKind))()
 				right.AddChild(paneler)
 				splitPanel.AddChild(right)
 			case HashAllKind:
 				right.RemoveAllChildren()
-				paneler := mylog.Check2Bool(layouts.Get(HashAllKind))()
+				paneler := (layouts.Get(HashAllKind))()
 				right.AddChild(paneler)
 				splitPanel.AddChild(right)
 			case Base64Kind:
 				right.RemoveAllChildren()
-				panel := mylog.Check2Bool(layouts.Get(Base64Kind))()
+				panel := (layouts.Get(Base64Kind))()
 				right.AddChild(panel)
 				splitPanel.AddChild(right)
 			case Base32Kind:
 				right.RemoveAllChildren()
-				paneler := mylog.Check2Bool(layouts.Get(Base32Kind))()
+				paneler := (layouts.Get(Base32Kind))()
 				right.AddChild(paneler)
 				splitPanel.AddChild(right)
 			case GzipKind:
 				right.RemoveAllChildren()
-				paneler := mylog.Check2Bool(layouts.Get(GzipKind))()
+				paneler := (layouts.Get(GzipKind))()
 				right.AddChild(paneler)
 				splitPanel.AddChild(right)
 			case TrimSpaceKind:
 				right.RemoveAllChildren()
-				paneler := mylog.Check2Bool(layouts.Get(TrimSpaceKind))()
+				paneler := (layouts.Get(TrimSpaceKind))()
 				right.AddChild(paneler)
 				splitPanel.AddChild(right)
 			case SwapKind:
 				right.RemoveAllChildren()
-				paneler := mylog.Check2Bool(layouts.Get(SwapKind))()
+				paneler := (layouts.Get(SwapKind))()
 				right.AddChild(paneler)
 				splitPanel.AddChild(right)
 			case RequestHeaderKind:
 				right.RemoveAllChildren()
-				paneler := mylog.Check2Bool(layouts.Get(RequestHeaderKind))()
+				paneler := (layouts.Get(RequestHeaderKind))()
 				right.AddChild(paneler)
 				splitPanel.AddChild(right)
 			case TimeStampKind:
 				right.RemoveAllChildren()
-				paneler := mylog.Check2Bool(layouts.Get(TimeStampKind))()
+				paneler := (layouts.Get(TimeStampKind))()
 				right.AddChild(paneler)
 				splitPanel.AddChild(right)
 			default:
