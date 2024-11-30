@@ -6,8 +6,8 @@ import (
 )
 
 var (
-	encryptCount = 0
-	decryptCount = 0
+	encryptCount = byte(0)
+	decryptCount = byte(0)
 )
 
 func Encrypt[T stream.Type](src, key T) (dst *stream.Buffer) {
@@ -50,14 +50,14 @@ type DecryptInfo struct {
 	Src   []byte
 	Key   Key
 	Dst   []byte
-	Count int
+	Count byte
 }
 
 type EncryptInfo struct {
 	Src   []byte
 	Key   Key
 	Dst   []byte
-	Count int
+	Count byte
 }
 
 type Key []byte
