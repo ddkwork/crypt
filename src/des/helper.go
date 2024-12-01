@@ -183,7 +183,7 @@ func left2(in []byte) (out []byte) {
 
 // Expands a 64-bit key into 16 * 48 bit subkeys
 func expand(key []byte) (keys [][]byte) {
-	// Get the 56-bit PC1 permutation
+	// GetMust the 56-bit PC1 permutation
 	kplus := pc1(key)
 
 	// Do the left shifts
