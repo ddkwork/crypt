@@ -126,7 +126,7 @@ func (c *CryptUI) Layout() *unison.Panel {
 	widget.SetScrollLayout(splitPanel, 2)
 
 	left := widget.NewTableScrollPanel(table, header)
-	layouts := new(safemap.SafeMap[CryptNameType, func() unison.Paneler])
+	layouts := new(safemap.M[CryptNameType, func() unison.Paneler])
 	layouts.Set(AesType, func() unison.Paneler {
 		view, RowPanel := widget.NewStructView(SrcKeyDstdData{}, func(data SrcKeyDstdData) (values []widget.CellData) {
 			return []widget.CellData{{Text: data.Src}, {Text: data.Key}, {Text: data.Dst}}
