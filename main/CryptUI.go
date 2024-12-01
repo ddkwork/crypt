@@ -824,10 +824,8 @@ func (c *CryptUI) Layout() *unison.Panel {
 	})
 
 	right := widget.NewPanel()
-	value, exist := layouts.GetMust(AesType)
-	if exist {
-		right.AddChild(value()) // todo make a welcoming page
-	}
+	value := layouts.GetMust(AesType)
+	right.AddChild(value()) // todo make a welcoming page
 	splitPanel.AddChild(left)
 	splitPanel.AddChild(right)
 
@@ -840,166 +838,119 @@ func (c *CryptUI) Layout() *unison.Panel {
 			switch n.Data.Name {
 			case AesType:
 				right.RemoveAllChildren()
-				paneler, ok := layouts.GetMust(AesType)
-				if ok {
-					right.AddChild(paneler())
-					splitPanel.AddChild(right)
-				}
-
+				paneler := layouts.GetMust(AesType)
+				right.AddChild(paneler())
+				splitPanel.AddChild(right)
 			case DesType:
 				right.RemoveAllChildren()
-				paneler, ok := layouts.GetMust(DesType)
-				if ok {
-					right.AddChild(paneler())
-					splitPanel.AddChild(right)
-				}
+				paneler := layouts.GetMust(DesType)
+				right.AddChild(paneler())
+				splitPanel.AddChild(right)
 			case Des3Type:
 				right.RemoveAllChildren()
-				paneler, ok := layouts.GetMust(Des3Type)
-				if ok {
-					right.AddChild(paneler())
-					splitPanel.AddChild(right)
-				}
+				paneler := layouts.GetMust(Des3Type)
+				right.AddChild(paneler())
+				splitPanel.AddChild(right)
 			case TeaType:
 				right.RemoveAllChildren()
-				paneler, ok := layouts.GetMust(TeaType)
-				if ok {
-					right.AddChild(paneler())
-					splitPanel.AddChild(right)
-				}
+				paneler := layouts.GetMust(TeaType)
+				right.AddChild(paneler())
+				splitPanel.AddChild(right)
 			case BlowfishType:
 				right.RemoveAllChildren()
-				paneler, ok := layouts.GetMust(BlowfishType)
-				if ok {
-					right.AddChild(paneler())
-					splitPanel.AddChild(right)
-				}
+				paneler := layouts.GetMust(BlowfishType)
+				right.AddChild(paneler())
+				splitPanel.AddChild(right)
 			case TwoFishType:
 				right.RemoveAllChildren()
-				paneler, ok := layouts.GetMust(TwoFishType)
-				if ok {
-					right.AddChild(paneler())
-					splitPanel.AddChild(right)
-				}
+				paneler := layouts.GetMust(TwoFishType)
+				right.AddChild(paneler())
+				splitPanel.AddChild(right)
 			case Rc4Type:
 				right.RemoveAllChildren()
-				paneler, ok := layouts.GetMust(Rc4Type)
-				if ok {
-					right.AddChild(paneler())
-					splitPanel.AddChild(right)
-				}
+				paneler := layouts.GetMust(Rc4Type)
+				right.AddChild(paneler())
+				splitPanel.AddChild(right)
 			case Rc2Type:
 				right.RemoveAllChildren()
-				paneler, ok := layouts.GetMust(Rc2Type)
-				if ok {
-					right.AddChild(paneler())
-					splitPanel.AddChild(right)
-				}
+				paneler := layouts.GetMust(Rc2Type)
+				right.AddChild(paneler())
+				splitPanel.AddChild(right)
 			case RsaType:
 				right.RemoveAllChildren()
-				paneler, ok := layouts.GetMust(RsaType)
-				if ok {
-					right.AddChild(paneler())
-					splitPanel.AddChild(right)
-				}
+				paneler := layouts.GetMust(RsaType)
+				right.AddChild(paneler())
+				splitPanel.AddChild(right)
 			case EccType:
 				right.RemoveAllChildren()
-				paneler, ok := layouts.GetMust(EccType)
-				if ok {
-					right.AddChild(paneler())
-					splitPanel.AddChild(right)
-				}
+				paneler := layouts.GetMust(EccType)
+				right.AddChild(paneler())
+				splitPanel.AddChild(right)
 			case DsaType:
 				right.RemoveAllChildren()
-				paneler, ok := layouts.GetMust(DsaType)
-				if ok {
-					right.AddChild(paneler())
-					splitPanel.AddChild(right)
-				}
+				paneler := layouts.GetMust(DsaType)
+				right.AddChild(paneler())
+				splitPanel.AddChild(right)
 			case PgpType:
 				right.RemoveAllChildren()
-				paneler, ok := layouts.GetMust(PgpType)
-				if ok {
-					right.AddChild(paneler())
-					splitPanel.AddChild(right)
-				}
+				paneler := layouts.GetMust(PgpType)
+				right.AddChild(paneler())
+				splitPanel.AddChild(right)
 			case Sm4Type:
 				right.RemoveAllChildren()
-				paneler, ok := layouts.GetMust(Sm4Type)
-				if ok {
-					right.AddChild(paneler())
-					splitPanel.AddChild(right)
-				}
+				paneler := layouts.GetMust(Sm4Type)
+				right.AddChild(paneler())
+				splitPanel.AddChild(right)
 			case Sm2Type:
 				right.RemoveAllChildren()
-				paneler, ok := layouts.GetMust(Sm2Type)
-				if ok {
-					right.AddChild(paneler())
-					splitPanel.AddChild(right)
-				}
+				paneler := layouts.GetMust(Sm2Type)
+				right.AddChild(paneler())
+				splitPanel.AddChild(right)
 			case HmacType:
 				right.RemoveAllChildren()
-				paneler, ok := layouts.GetMust(HmacType)
-				if ok {
-					right.AddChild(paneler())
-					splitPanel.AddChild(right)
-				}
+				paneler := layouts.GetMust(HmacType)
+				right.AddChild(paneler())
+				splitPanel.AddChild(right)
 			case HashAllType:
 				right.RemoveAllChildren()
-				paneler, ok := layouts.GetMust(HashAllType)
-				if ok {
-					right.AddChild(paneler())
-					splitPanel.AddChild(right)
-				}
+				paneler := layouts.GetMust(HashAllType)
+				right.AddChild(paneler())
+				splitPanel.AddChild(right)
 			case Base64Type:
 				right.RemoveAllChildren()
-				panel, ok := layouts.GetMust(Base64Type)
-				if ok {
-					right.AddChild(panel())
-					splitPanel.AddChild(right)
-				}
+				panel := layouts.GetMust(Base64Type)
+				right.AddChild(panel())
+				splitPanel.AddChild(right)
 			case Base32Type:
 				right.RemoveAllChildren()
-				paneler, ok := layouts.GetMust(Base32Type)
-				if ok {
-					right.AddChild(paneler())
-					splitPanel.AddChild(right)
-				}
+				paneler := layouts.GetMust(Base32Type)
+				right.AddChild(paneler())
+				splitPanel.AddChild(right)
 			case GzipType:
 				right.RemoveAllChildren()
-				paneler, ok := layouts.GetMust(GzipType)
-				if ok {
-					right.AddChild(paneler())
-					splitPanel.AddChild(right)
-				}
+				paneler := layouts.GetMust(GzipType)
+				right.AddChild(paneler())
+				splitPanel.AddChild(right)
 			case TrimSpaceType:
 				right.RemoveAllChildren()
-				paneler, ok := layouts.GetMust(TrimSpaceType)
-				if ok {
-					right.AddChild(paneler())
-					splitPanel.AddChild(right)
-				}
+				paneler := layouts.GetMust(TrimSpaceType)
+				right.AddChild(paneler())
+				splitPanel.AddChild(right)
 			case SwapType:
 				right.RemoveAllChildren()
-				paneler, ok := layouts.GetMust(SwapType)
-				if ok {
-					right.AddChild(paneler())
-					splitPanel.AddChild(right)
-				}
+				paneler := layouts.GetMust(SwapType)
+				right.AddChild(paneler())
+				splitPanel.AddChild(right)
 			case RequestHeaderType:
 				right.RemoveAllChildren()
-				paneler, ok := layouts.GetMust(RequestHeaderType)
-				if ok {
-					right.AddChild(paneler())
-					splitPanel.AddChild(right)
-				}
+				paneler := layouts.GetMust(RequestHeaderType)
+				right.AddChild(paneler())
+				splitPanel.AddChild(right)
 			case TimeStampType:
 				right.RemoveAllChildren()
-				paneler, ok := layouts.GetMust(TimeStampType)
-				if ok {
-					right.AddChild(paneler())
-					splitPanel.AddChild(right)
-				}
+				paneler := layouts.GetMust(TimeStampType)
+				right.AddChild(paneler())
+				splitPanel.AddChild(right)
 			default:
 			}
 		}
