@@ -5,9 +5,9 @@ import (
 	"github.com/ddkwork/app/widget"
 	"github.com/ddkwork/crypt/src/aes"
 	"github.com/ddkwork/golibrary/mylog"
+	"github.com/ddkwork/golibrary/safemap"
 	"github.com/ddkwork/golibrary/stream"
 	"github.com/ddkwork/unison"
-	"github.com/goradd/maps"
 )
 
 func main() {
@@ -28,7 +28,7 @@ func NewCryptUI() *CryptUI {
 
 type (
 	CryptTable struct {
-		Name CryptNameKind
+		Name CryptNameType
 	}
 	SrcKeyDstdData struct {
 		Src string
@@ -74,46 +74,46 @@ func (c *CryptUI) Layout() *unison.Panel {
 			mylog.Todo("selection changed callback")
 		},
 		SetRootRowsCallBack: func(root *widget.Node[CryptTable]) {
-			for _, kind := range InvalidCryptKind.Kinds() {
+			for _, kind := range SymmetryType.EnumTypes() {
 				switch kind {
-				case SymmetryKind:
-					container := widget.NewContainerNode(SymmetryKind.String(), CryptTable{})
+				case SymmetryType:
+					container := widget.NewContainerNode(SymmetryType.String(), CryptTable{})
 					root.AddChild(container)
-					container.AddChildByData(CryptTable{Name: AesKind})
-					container.AddChildByData(CryptTable{Name: DesKind})
-					container.AddChildByData(CryptTable{Name: Des3Kind})
-					container.AddChildByData(CryptTable{Name: TeaKind})
-					container.AddChildByData(CryptTable{Name: BlowfishKind})
-					container.AddChildByData(CryptTable{Name: TwoFishKind})
-					container.AddChildByData(CryptTable{Name: Rc4Kind})
-					container.AddChildByData(CryptTable{Name: Rc2Kind})
-				case AsymmetricalKind:
-					container := widget.NewContainerNode(AsymmetricalKind.String(), CryptTable{})
+					container.AddChildByData(CryptTable{Name: AesType})
+					container.AddChildByData(CryptTable{Name: DesType})
+					container.AddChildByData(CryptTable{Name: Des3Type})
+					container.AddChildByData(CryptTable{Name: TeaType})
+					container.AddChildByData(CryptTable{Name: BlowfishType})
+					container.AddChildByData(CryptTable{Name: TwoFishType})
+					container.AddChildByData(CryptTable{Name: Rc4Type})
+					container.AddChildByData(CryptTable{Name: Rc2Type})
+				case AsymmetricalType:
+					container := widget.NewContainerNode(AsymmetricalType.String(), CryptTable{})
 					root.AddChild(container)
-					container.AddChildByData(CryptTable{Name: RsaKind})
-					container.AddChildByData(CryptTable{Name: EccKind})
-					container.AddChildByData(CryptTable{Name: DsaKind})
-					container.AddChildByData(CryptTable{Name: PgpKind})
-					container.AddChildByData(CryptTable{Name: Sm4Kind})
-					container.AddChildByData(CryptTable{Name: Sm2Kind})
-				case HashKind:
-					container := widget.NewContainerNode(HashKind.String(), CryptTable{})
+					container.AddChildByData(CryptTable{Name: RsaType})
+					container.AddChildByData(CryptTable{Name: EccType})
+					container.AddChildByData(CryptTable{Name: DsaType})
+					container.AddChildByData(CryptTable{Name: PgpType})
+					container.AddChildByData(CryptTable{Name: Sm4Type})
+					container.AddChildByData(CryptTable{Name: Sm2Type})
+				case HashType:
+					container := widget.NewContainerNode(HashType.String(), CryptTable{})
 					root.AddChild(container)
-					container.AddChildByData(CryptTable{Name: HmacKind})
-					container.AddChildByData(CryptTable{Name: HashAllKind})
-				case EncodingKind:
-					container := widget.NewContainerNode(EncodingKind.String(), CryptTable{})
+					container.AddChildByData(CryptTable{Name: HmacType})
+					container.AddChildByData(CryptTable{Name: HashAllType})
+				case EncodingType:
+					container := widget.NewContainerNode(EncodingType.String(), CryptTable{})
 					root.AddChild(container)
-					container.AddChildByData(CryptTable{Name: Base64Kind})
-					container.AddChildByData(CryptTable{Name: Base32Kind})
-					container.AddChildByData(CryptTable{Name: GzipKind})
-				case ToolKind:
-					container := widget.NewContainerNode(ToolKind.String(), CryptTable{})
+					container.AddChildByData(CryptTable{Name: Base64Type})
+					container.AddChildByData(CryptTable{Name: Base32Type})
+					container.AddChildByData(CryptTable{Name: GzipType})
+				case ToolType:
+					container := widget.NewContainerNode(ToolType.String(), CryptTable{})
 					root.AddChild(container)
-					container.AddChildByData(CryptTable{Name: TrimSpaceKind})
-					container.AddChildByData(CryptTable{Name: SwapKind})
-					container.AddChildByData(CryptTable{Name: RequestHeaderKind})
-					container.AddChildByData(CryptTable{Name: TimeStampKind})
+					container.AddChildByData(CryptTable{Name: TrimSpaceType})
+					container.AddChildByData(CryptTable{Name: SwapType})
+					container.AddChildByData(CryptTable{Name: RequestHeaderType})
+					container.AddChildByData(CryptTable{Name: TimeStampType})
 				default:
 				}
 			}
@@ -126,8 +126,9 @@ func (c *CryptUI) Layout() *unison.Panel {
 	widget.SetScrollLayout(splitPanel, 2)
 
 	left := widget.NewTableScrollPanel(table, header)
-	layouts := new(maps.SafeSliceMap[CryptNameKind, func() unison.Paneler])
-	layouts.Set(AesKind, func() unison.Paneler {
+	layouts := new(safemap.SafeMap[CryptNameType, func() unison.Paneler])
+	layouts.Init()
+	layouts.Set(AesType, func() unison.Paneler {
 		view, RowPanel := widget.NewStructView(SrcKeyDstdData{}, func(data SrcKeyDstdData) (values []widget.CellData) {
 			return []widget.CellData{{Text: data.Src}, {Text: data.Key}, {Text: data.Dst}}
 		})
@@ -161,7 +162,7 @@ func (c *CryptUI) Layout() *unison.Panel {
 		scrollPanelFill := widget.NewScrollPanelFill(panel)
 		return scrollPanelFill
 	})
-	layouts.Set(DesKind, func() unison.Paneler {
+	layouts.Set(DesType, func() unison.Paneler {
 		view, RowPanel := widget.NewStructView(SrcKeyDstdData{}, func(data SrcKeyDstdData) (values []widget.CellData) {
 			return []widget.CellData{{Text: data.Src}, {Text: data.Key}, {Text: data.Dst}}
 		})
@@ -188,7 +189,7 @@ func (c *CryptUI) Layout() *unison.Panel {
 		scrollPanelFill := widget.NewScrollPanelFill(panel)
 		return scrollPanelFill
 	})
-	layouts.Set(Des3Kind, func() unison.Paneler {
+	layouts.Set(Des3Type, func() unison.Paneler {
 		view, RowPanel := widget.NewStructView(SrcKeyDstdData{}, func(data SrcKeyDstdData) (values []widget.CellData) {
 			return []widget.CellData{{Text: data.Src}, {Text: data.Key}, {Text: data.Dst}}
 		})
@@ -215,7 +216,7 @@ func (c *CryptUI) Layout() *unison.Panel {
 		scrollPanelFill := widget.NewScrollPanelFill(panel)
 		return scrollPanelFill
 	})
-	layouts.Set(TeaKind, func() unison.Paneler {
+	layouts.Set(TeaType, func() unison.Paneler {
 		view, RowPanel := widget.NewStructView(SrcKeyDstdData{}, func(data SrcKeyDstdData) (values []widget.CellData) {
 			return []widget.CellData{{Text: data.Src}, {Text: data.Key}, {Text: data.Dst}}
 		})
@@ -242,7 +243,7 @@ func (c *CryptUI) Layout() *unison.Panel {
 		scrollPanelFill := widget.NewScrollPanelFill(panel)
 		return scrollPanelFill
 	})
-	layouts.Set(BlowfishKind, func() unison.Paneler {
+	layouts.Set(BlowfishType, func() unison.Paneler {
 		view, RowPanel := widget.NewStructView(SrcKeyDstdData{}, func(data SrcKeyDstdData) (values []widget.CellData) {
 			return []widget.CellData{{Text: data.Src}, {Text: data.Key}, {Text: data.Dst}}
 		})
@@ -269,7 +270,7 @@ func (c *CryptUI) Layout() *unison.Panel {
 		scrollPanelFill := widget.NewScrollPanelFill(panel)
 		return scrollPanelFill
 	})
-	layouts.Set(TwoFishKind, func() unison.Paneler {
+	layouts.Set(TwoFishType, func() unison.Paneler {
 		view, RowPanel := widget.NewStructView(SrcKeyDstdData{}, func(data SrcKeyDstdData) (values []widget.CellData) {
 			return []widget.CellData{{Text: data.Src}, {Text: data.Key}, {Text: data.Dst}}
 		})
@@ -296,7 +297,7 @@ func (c *CryptUI) Layout() *unison.Panel {
 		scrollPanelFill := widget.NewScrollPanelFill(panel)
 		return scrollPanelFill
 	})
-	layouts.Set(Rc4Kind, func() unison.Paneler {
+	layouts.Set(Rc4Type, func() unison.Paneler {
 		view, RowPanel := widget.NewStructView(SrcKeyDstdData{}, func(data SrcKeyDstdData) (values []widget.CellData) {
 			return []widget.CellData{{Text: data.Src}, {Text: data.Key}, {Text: data.Dst}}
 		})
@@ -323,7 +324,7 @@ func (c *CryptUI) Layout() *unison.Panel {
 		scrollPanelFill := widget.NewScrollPanelFill(panel)
 		return scrollPanelFill
 	})
-	layouts.Set(Rc2Kind, func() unison.Paneler {
+	layouts.Set(Rc2Type, func() unison.Paneler {
 		view, RowPanel := widget.NewStructView(SrcKeyDstdData{}, func(data SrcKeyDstdData) (values []widget.CellData) {
 			return []widget.CellData{{Text: data.Src}, {Text: data.Key}, {Text: data.Dst}}
 		})
@@ -350,7 +351,7 @@ func (c *CryptUI) Layout() *unison.Panel {
 		scrollPanelFill := widget.NewScrollPanelFill(panel)
 		return scrollPanelFill
 	})
-	layouts.Set(RsaKind, func() unison.Paneler {
+	layouts.Set(RsaType, func() unison.Paneler {
 		view, RowPanel := widget.NewStructView(RsaData{}, func(data RsaData) (values []widget.CellData) {
 			/*
 				P string
@@ -395,7 +396,7 @@ func (c *CryptUI) Layout() *unison.Panel {
 		scrollPanelFill := widget.NewScrollPanelFill(panel)
 		return scrollPanelFill
 	})
-	layouts.Set(EccKind, func() unison.Paneler {
+	layouts.Set(EccType, func() unison.Paneler {
 		view, RowPanel := widget.NewStructView(SrcKeyDstdData{}, func(data SrcKeyDstdData) (values []widget.CellData) {
 			return []widget.CellData{{Text: data.Src}, {Text: data.Key}, {Text: data.Dst}}
 		})
@@ -422,7 +423,7 @@ func (c *CryptUI) Layout() *unison.Panel {
 		scrollPanelFill := widget.NewScrollPanelFill(panel)
 		return scrollPanelFill
 	})
-	layouts.Set(DsaKind, func() unison.Paneler {
+	layouts.Set(DsaType, func() unison.Paneler {
 		view, RowPanel := widget.NewStructView(SrcKeyDstdData{}, func(data SrcKeyDstdData) (values []widget.CellData) {
 			return []widget.CellData{{Text: data.Src}, {Text: data.Key}, {Text: data.Dst}}
 		})
@@ -449,7 +450,7 @@ func (c *CryptUI) Layout() *unison.Panel {
 		scrollPanelFill := widget.NewScrollPanelFill(panel)
 		return scrollPanelFill
 	})
-	layouts.Set(PgpKind, func() unison.Paneler {
+	layouts.Set(PgpType, func() unison.Paneler {
 		view, RowPanel := widget.NewStructView(SrcKeyDstdData{}, func(data SrcKeyDstdData) (values []widget.CellData) {
 			return []widget.CellData{{Text: data.Src}, {Text: data.Key}, {Text: data.Dst}}
 		})
@@ -476,7 +477,7 @@ func (c *CryptUI) Layout() *unison.Panel {
 		scrollPanelFill := widget.NewScrollPanelFill(panel)
 		return scrollPanelFill
 	})
-	layouts.Set(Sm4Kind, func() unison.Paneler {
+	layouts.Set(Sm4Type, func() unison.Paneler {
 		view, RowPanel := widget.NewStructView(SrcKeyDstdData{}, func(data SrcKeyDstdData) (values []widget.CellData) {
 			return []widget.CellData{{Text: data.Src}, {Text: data.Key}, {Text: data.Dst}}
 		})
@@ -503,7 +504,7 @@ func (c *CryptUI) Layout() *unison.Panel {
 		scrollPanelFill := widget.NewScrollPanelFill(panel)
 		return scrollPanelFill
 	})
-	layouts.Set(Sm2Kind, func() unison.Paneler {
+	layouts.Set(Sm2Type, func() unison.Paneler {
 		view, RowPanel := widget.NewStructView(SrcKeyDstdData{}, func(data SrcKeyDstdData) (values []widget.CellData) {
 			return []widget.CellData{{Text: data.Src}, {Text: data.Key}, {Text: data.Dst}}
 		})
@@ -530,7 +531,7 @@ func (c *CryptUI) Layout() *unison.Panel {
 		scrollPanelFill := widget.NewScrollPanelFill(panel)
 		return scrollPanelFill
 	})
-	layouts.Set(HmacKind, func() unison.Paneler {
+	layouts.Set(HmacType, func() unison.Paneler {
 		view, RowPanel := widget.NewStructView(SrcKeyDstdData{}, func(data SrcKeyDstdData) (values []widget.CellData) {
 			return []widget.CellData{{Text: data.Src}, {Text: data.Key}, {Text: data.Dst}}
 		})
@@ -557,7 +558,7 @@ func (c *CryptUI) Layout() *unison.Panel {
 		scrollPanelFill := widget.NewScrollPanelFill(panel)
 		return scrollPanelFill
 	})
-	layouts.Set(HashAllKind, func() unison.Paneler {
+	layouts.Set(HashAllType, func() unison.Paneler {
 		view, RowPanel := widget.NewStructView(HashData{}, func(data HashData) (values []widget.CellData) {
 			return []widget.CellData{
 				/*
@@ -606,7 +607,7 @@ func (c *CryptUI) Layout() *unison.Panel {
 		scrollPanelFill := widget.NewScrollPanelFill(panel)
 		return scrollPanelFill
 	})
-	layouts.Set(Base64Kind, func() unison.Paneler {
+	layouts.Set(Base64Type, func() unison.Paneler {
 		view, RowPanel := widget.NewStructView(SrcKeyDstdData{}, func(data SrcKeyDstdData) (values []widget.CellData) {
 			return []widget.CellData{{Text: data.Src}, {Text: data.Key}, {Text: data.Dst}}
 		})
@@ -633,7 +634,7 @@ func (c *CryptUI) Layout() *unison.Panel {
 		scrollPanelFill := widget.NewScrollPanelFill(panel)
 		return scrollPanelFill
 	})
-	layouts.Set(Base32Kind, func() unison.Paneler {
+	layouts.Set(Base32Type, func() unison.Paneler {
 		view, RowPanel := widget.NewStructView(SrcKeyDstdData{}, func(data SrcKeyDstdData) (values []widget.CellData) {
 			return []widget.CellData{{Text: data.Src}, {Text: data.Key}, {Text: data.Dst}}
 		})
@@ -660,7 +661,7 @@ func (c *CryptUI) Layout() *unison.Panel {
 		scrollPanelFill := widget.NewScrollPanelFill(panel)
 		return scrollPanelFill
 	})
-	layouts.Set(GzipKind, func() unison.Paneler {
+	layouts.Set(GzipType, func() unison.Paneler {
 		view, RowPanel := widget.NewStructView(SrcKeyDstdData{}, func(data SrcKeyDstdData) (values []widget.CellData) {
 			return []widget.CellData{{Text: data.Src}, {Text: data.Key}, {Text: data.Dst}}
 		})
@@ -687,7 +688,7 @@ func (c *CryptUI) Layout() *unison.Panel {
 		scrollPanelFill := widget.NewScrollPanelFill(panel)
 		return scrollPanelFill
 	})
-	layouts.Set(TrimSpaceKind, func() unison.Paneler {
+	layouts.Set(TrimSpaceType, func() unison.Paneler {
 		view, RowPanel := widget.NewStructView(SrcKeyDstdData{}, func(data SrcKeyDstdData) (values []widget.CellData) {
 			return []widget.CellData{{Text: data.Src}, {Text: data.Key}, {Text: data.Dst}}
 		})
@@ -714,7 +715,7 @@ func (c *CryptUI) Layout() *unison.Panel {
 		scrollPanelFill := widget.NewScrollPanelFill(panel)
 		return scrollPanelFill
 	})
-	layouts.Set(SwapKind, func() unison.Paneler {
+	layouts.Set(SwapType, func() unison.Paneler {
 		view, RowPanel := widget.NewStructView(SrcKeyDstdData{}, func(data SrcKeyDstdData) (values []widget.CellData) {
 			return []widget.CellData{{Text: data.Src}, {Text: data.Key}, {Text: data.Dst}}
 		})
@@ -741,7 +742,7 @@ func (c *CryptUI) Layout() *unison.Panel {
 		scrollPanelFill := widget.NewScrollPanelFill(panel)
 		return scrollPanelFill
 	})
-	layouts.Set(RequestHeaderKind, func() unison.Paneler {
+	layouts.Set(RequestHeaderType, func() unison.Paneler {
 		view, RowPanel := widget.NewStructView(SrcKeyDstdData{}, func(data SrcKeyDstdData) (values []widget.CellData) {
 			return []widget.CellData{{Text: data.Src}, {Text: data.Key}, {Text: data.Dst}}
 		})
@@ -768,7 +769,7 @@ func (c *CryptUI) Layout() *unison.Panel {
 		scrollPanelFill := widget.NewScrollPanelFill(panel)
 		return scrollPanelFill
 	})
-	layouts.Set(TimeStampKind, func() unison.Paneler {
+	layouts.Set(TimeStampType, func() unison.Paneler {
 		view, RowPanel := widget.NewStructView(SrcKeyDstdData{}, func(data SrcKeyDstdData) (values []widget.CellData) {
 			return []widget.CellData{{Text: data.Src}, {Text: data.Key}, {Text: data.Dst}}
 		})
@@ -795,7 +796,7 @@ func (c *CryptUI) Layout() *unison.Panel {
 		scrollPanelFill := widget.NewScrollPanelFill(panel)
 		return scrollPanelFill
 	})
-	layouts.Set(AesKind, func() unison.Paneler {
+	layouts.Set(AesType, func() unison.Paneler {
 		view, RowPanel := widget.NewStructView(SrcKeyDstdData{}, func(data SrcKeyDstdData) (values []widget.CellData) {
 			return []widget.CellData{{Text: data.Src}, {Text: data.Key}, {Text: data.Dst}}
 		})
@@ -824,7 +825,10 @@ func (c *CryptUI) Layout() *unison.Panel {
 	})
 
 	right := widget.NewPanel()
-	right.AddChild((layouts.Get(AesKind))()) // todo make a welcoming page
+	value, exist := layouts.Get(AesType)
+	if exist {
+		right.AddChild(value()) // todo make a welcoming page
+	}
 	splitPanel.AddChild(left)
 	splitPanel.AddChild(right)
 
@@ -835,121 +839,168 @@ func (c *CryptUI) Layout() *unison.Panel {
 				break
 			}
 			switch n.Data.Name {
-			case AesKind:
+			case AesType:
 				right.RemoveAllChildren()
-				paneler := (layouts.Get(AesKind))()
-				right.AddChild(paneler)
-				splitPanel.AddChild(right)
-			case DesKind:
+				paneler, ok := layouts.Get(AesType)
+				if ok {
+					right.AddChild(paneler())
+					splitPanel.AddChild(right)
+				}
+
+			case DesType:
 				right.RemoveAllChildren()
-				paneler := (layouts.Get(DesKind))()
-				right.AddChild(paneler)
-				splitPanel.AddChild(right)
-			case Des3Kind:
+				paneler, ok := layouts.Get(DesType)
+				if ok {
+					right.AddChild(paneler())
+					splitPanel.AddChild(right)
+				}
+			case Des3Type:
 				right.RemoveAllChildren()
-				paneler := (layouts.Get(Des3Kind))()
-				right.AddChild(paneler)
-				splitPanel.AddChild(right)
-			case TeaKind:
+				paneler, ok := layouts.Get(Des3Type)
+				if ok {
+					right.AddChild(paneler())
+					splitPanel.AddChild(right)
+				}
+			case TeaType:
 				right.RemoveAllChildren()
-				paneler := (layouts.Get(TeaKind))()
-				right.AddChild(paneler)
-				splitPanel.AddChild(right)
-			case BlowfishKind:
+				paneler, ok := layouts.Get(TeaType)
+				if ok {
+					right.AddChild(paneler())
+					splitPanel.AddChild(right)
+				}
+			case BlowfishType:
 				right.RemoveAllChildren()
-				paneler := (layouts.Get(BlowfishKind))()
-				right.AddChild(paneler)
-				splitPanel.AddChild(right)
-			case TwoFishKind:
+				paneler, ok := layouts.Get(BlowfishType)
+				if ok {
+					right.AddChild(paneler())
+					splitPanel.AddChild(right)
+				}
+			case TwoFishType:
 				right.RemoveAllChildren()
-				paneler := (layouts.Get(TwoFishKind))()
-				right.AddChild(paneler)
-				splitPanel.AddChild(right)
-			case Rc4Kind:
+				paneler, ok := layouts.Get(TwoFishType)
+				if ok {
+					right.AddChild(paneler())
+					splitPanel.AddChild(right)
+				}
+			case Rc4Type:
 				right.RemoveAllChildren()
-				paneler := (layouts.Get(Rc4Kind))()
-				right.AddChild(paneler)
-				splitPanel.AddChild(right)
-			case Rc2Kind:
+				paneler, ok := layouts.Get(Rc4Type)
+				if ok {
+					right.AddChild(paneler())
+					splitPanel.AddChild(right)
+				}
+			case Rc2Type:
 				right.RemoveAllChildren()
-				paneler := (layouts.Get(Rc2Kind))()
-				right.AddChild(paneler)
-				splitPanel.AddChild(right)
-			case RsaKind:
+				paneler, ok := layouts.Get(Rc2Type)
+				if ok {
+					right.AddChild(paneler())
+					splitPanel.AddChild(right)
+				}
+			case RsaType:
 				right.RemoveAllChildren()
-				paneler := (layouts.Get(RsaKind))()
-				right.AddChild(paneler)
-				splitPanel.AddChild(right)
-			case EccKind:
+				paneler, ok := layouts.Get(RsaType)
+				if ok {
+					right.AddChild(paneler())
+					splitPanel.AddChild(right)
+				}
+			case EccType:
 				right.RemoveAllChildren()
-				paneler := (layouts.Get(EccKind))()
-				right.AddChild(paneler)
-				splitPanel.AddChild(right)
-			case DsaKind:
+				paneler, ok := layouts.Get(EccType)
+				if ok {
+					right.AddChild(paneler())
+					splitPanel.AddChild(right)
+				}
+			case DsaType:
 				right.RemoveAllChildren()
-				paneler := (layouts.Get(DsaKind))()
-				right.AddChild(paneler)
-				splitPanel.AddChild(right)
-			case PgpKind:
+				paneler, ok := layouts.Get(DsaType)
+				if ok {
+					right.AddChild(paneler())
+					splitPanel.AddChild(right)
+				}
+			case PgpType:
 				right.RemoveAllChildren()
-				paneler := (layouts.Get(PgpKind))()
-				right.AddChild(paneler)
-				splitPanel.AddChild(right)
-			case Sm4Kind:
+				paneler, ok := layouts.Get(PgpType)
+				if ok {
+					right.AddChild(paneler())
+					splitPanel.AddChild(right)
+				}
+			case Sm4Type:
 				right.RemoveAllChildren()
-				paneler := (layouts.Get(Sm4Kind))()
-				right.AddChild(paneler)
-				splitPanel.AddChild(right)
-			case Sm2Kind:
+				paneler, ok := layouts.Get(Sm4Type)
+				if ok {
+					right.AddChild(paneler())
+					splitPanel.AddChild(right)
+				}
+			case Sm2Type:
 				right.RemoveAllChildren()
-				paneler := (layouts.Get(Sm2Kind))()
-				right.AddChild(paneler)
-				splitPanel.AddChild(right)
-			case HmacKind:
+				paneler, ok := layouts.Get(Sm2Type)
+				if ok {
+					right.AddChild(paneler())
+					splitPanel.AddChild(right)
+				}
+			case HmacType:
 				right.RemoveAllChildren()
-				paneler := (layouts.Get(HmacKind))()
-				right.AddChild(paneler)
-				splitPanel.AddChild(right)
-			case HashAllKind:
+				paneler, ok := layouts.Get(HmacType)
+				if ok {
+					right.AddChild(paneler())
+					splitPanel.AddChild(right)
+				}
+			case HashAllType:
 				right.RemoveAllChildren()
-				paneler := (layouts.Get(HashAllKind))()
-				right.AddChild(paneler)
-				splitPanel.AddChild(right)
-			case Base64Kind:
+				paneler, ok := layouts.Get(HashAllType)
+				if ok {
+					right.AddChild(paneler())
+					splitPanel.AddChild(right)
+				}
+			case Base64Type:
 				right.RemoveAllChildren()
-				panel := (layouts.Get(Base64Kind))()
-				right.AddChild(panel)
-				splitPanel.AddChild(right)
-			case Base32Kind:
+				panel, ok := layouts.Get(Base64Type)
+				if ok {
+					right.AddChild(panel())
+					splitPanel.AddChild(right)
+				}
+			case Base32Type:
 				right.RemoveAllChildren()
-				paneler := (layouts.Get(Base32Kind))()
-				right.AddChild(paneler)
-				splitPanel.AddChild(right)
-			case GzipKind:
+				paneler, ok := layouts.Get(Base32Type)
+				if ok {
+					right.AddChild(paneler())
+					splitPanel.AddChild(right)
+				}
+			case GzipType:
 				right.RemoveAllChildren()
-				paneler := (layouts.Get(GzipKind))()
-				right.AddChild(paneler)
-				splitPanel.AddChild(right)
-			case TrimSpaceKind:
+				paneler, ok := layouts.Get(GzipType)
+				if ok {
+					right.AddChild(paneler())
+					splitPanel.AddChild(right)
+				}
+			case TrimSpaceType:
 				right.RemoveAllChildren()
-				paneler := (layouts.Get(TrimSpaceKind))()
-				right.AddChild(paneler)
-				splitPanel.AddChild(right)
-			case SwapKind:
+				paneler, ok := layouts.Get(TrimSpaceType)
+				if ok {
+					right.AddChild(paneler())
+					splitPanel.AddChild(right)
+				}
+			case SwapType:
 				right.RemoveAllChildren()
-				paneler := (layouts.Get(SwapKind))()
-				right.AddChild(paneler)
-				splitPanel.AddChild(right)
-			case RequestHeaderKind:
+				paneler, ok := layouts.Get(SwapType)
+				if ok {
+					right.AddChild(paneler())
+					splitPanel.AddChild(right)
+				}
+			case RequestHeaderType:
 				right.RemoveAllChildren()
-				paneler := (layouts.Get(RequestHeaderKind))()
-				right.AddChild(paneler)
-				splitPanel.AddChild(right)
-			case TimeStampKind:
+				paneler, ok := layouts.Get(RequestHeaderType)
+				if ok {
+					right.AddChild(paneler())
+					splitPanel.AddChild(right)
+				}
+			case TimeStampType:
 				right.RemoveAllChildren()
-				paneler := (layouts.Get(TimeStampKind))()
-				right.AddChild(paneler)
-				splitPanel.AddChild(right)
+				paneler, ok := layouts.Get(TimeStampType)
+				if ok {
+					right.AddChild(paneler())
+					splitPanel.AddChild(right)
+				}
 			default:
 			}
 		}

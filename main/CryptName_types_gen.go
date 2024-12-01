@@ -140,7 +140,7 @@ func (t CryptNameType) Tooltip() string {
 	case HmacType:
 		return "Hmac"
 	case HashAllType:
-		return "hashAll"
+		return "HashAll"
 	case Base64Type:
 		return "Base64"
 	case Base32Type:
@@ -148,13 +148,13 @@ func (t CryptNameType) Tooltip() string {
 	case GzipType:
 		return "Gzip"
 	case TrimSpaceType:
-		return "trimSpace"
+		return "TrimSpace"
 	case SwapType:
-		return "swap"
+		return "Swap"
 	case RequestHeaderType:
-		return "request header"
+		return "RequestHeader"
 	case TimeStampType:
-		return "timeStamp"
+		return "TimeStamp"
 	default:
 		panic("InvalidType")
 	}

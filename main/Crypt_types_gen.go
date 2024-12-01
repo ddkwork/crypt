@@ -56,13 +56,13 @@ func (t CryptType) String() string {
 func (t CryptType) Tooltip() string {
 	switch t {
 	case SymmetryType:
-		return "symmetry"
+		return "Symmetry"
 	case AsymmetricalType:
-		return "asymmetrical"
+		return "Asymmetrical"
 	case HashType:
-		return "hash"
+		return "Hash"
 	case EncodingType:
-		return "encoding"
+		return "Encoding"
 	case ToolType:
 		return "Tool"
 	default:
