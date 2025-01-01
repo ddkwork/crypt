@@ -3,7 +3,7 @@ module github.com/ddkwork/crypt
 go 1.23.3
 
 require (
-	github.com/ddkwork/golibrary v0.0.0-20241109061650-bd3e94f7b3cf
+	github.com/ddkwork/golibrary v0.0.0-20250101083646-7f7ce7d4075c
 	github.com/dop251/goja v0.0.0-20240610225006-393f6d42497b
 	golang.org/x/crypto v0.28.0
 	golang.org/x/exp v0.0.0-20241009180824-f66d83c29e7c
@@ -25,11 +25,11 @@ require (
 	github.com/mattn/go-isatty v0.0.20 // indirect
 	github.com/rivo/uniseg v0.4.7 // indirect
 	golang.org/x/exp/shiny v0.0.0-20241009180824-f66d83c29e7c // indirect
-	golang.org/x/image v0.21.0 // indirect
-	golang.org/x/mod v0.21.0 // indirect
-	golang.org/x/sys v0.26.0 // indirect
-	golang.org/x/text v0.19.0 // indirect
-	golang.org/x/tools v0.26.0 // indirect
+	golang.org/x/image v0.23.0 // indirect
+	golang.org/x/mod v0.22.0 // indirect
+	golang.org/x/sys v0.28.0 // indirect
+	golang.org/x/text v0.21.0 // indirect
+	golang.org/x/tools v0.28.0 // indirect
 	gopkg.in/yaml.v3 v3.0.1 // indirect
 	mvdan.cc/gofumpt v0.7.0 // indirect
 )
