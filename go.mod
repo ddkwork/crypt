@@ -3,7 +3,7 @@ module github.com/ddkwork/crypt
 go 1.23.3
 
 require (
-	github.com/ddkwork/golibrary v0.0.0-20250101083646-7f7ce7d4075c
+	github.com/ddkwork/golibrary v0.0.0-20250101093329-d96f6524ebe4
 	github.com/dop251/goja v0.0.0-20240610225006-393f6d42497b
 	golang.org/x/crypto v0.28.0
 	golang.org/x/exp v0.0.0-20241009180824-f66d83c29e7c
