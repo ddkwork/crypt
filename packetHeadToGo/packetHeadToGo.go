@@ -23,8 +23,7 @@ type (
 )
 
 func (o *object) Convert(src string) (ok bool) {
-	lines := stream.ReadFileToLines(src)
-	for _, line := range lines {
+	for line := range stream.ReadFileToLines(src) {
 		if !strings.Contains(line, ":") { // skip get post
 			continue
 		}
