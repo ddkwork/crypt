@@ -3,14 +3,14 @@ module github.com/ddkwork/crypt
 go 1.24.0
 
 require (
-	github.com/ddkwork/golibrary v0.0.91-0.20250224160512-cae108870eee
+	github.com/ddkwork/golibrary v0.0.91-0.20250225120832-ed50dea89457
 	github.com/dop251/goja v0.0.0-20240610225006-393f6d42497b
 	golang.org/x/crypto v0.28.0
 	golang.org/x/exp v0.0.0-20250218142911-aa4b98e5adaa
 )
 
 require (
-	gioui.org v0.8.0 // indirect
+	gioui.org v0.8.1-0.20250223181602-72a72a2bc21a // indirect
 	gioui.org/cpu v0.0.0-20220412190645-f1e9e8c3b1f7 // indirect
 	gioui.org/shader v1.0.8 // indirect
 	github.com/axgle/mahonia v0.0.0-20180208002826-3358181d7394 // indirect
