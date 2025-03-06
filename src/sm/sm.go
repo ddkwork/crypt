@@ -1,7 +1,7 @@
 package sm
 
 type (
-	Interface interface{}
+	Interface any
 	object    struct{}
 )
 

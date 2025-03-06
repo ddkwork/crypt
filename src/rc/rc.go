@@ -1,7 +1,7 @@
 package rc
 
 type (
-	Interface interface{}
+	Interface any
 	object    struct{}
 )
 
