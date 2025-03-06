@@ -4,7 +4,7 @@ go 1.24.0
 
 require (
 	github.com/ddkwork/app v0.0.0-20250305122938-3f4407a4e5df
-	github.com/ddkwork/golibrary v0.0.91-0.20250305180712-ddf6d725a722
+	github.com/ddkwork/golibrary v0.0.91-0.20250306045432-aa8da34ea72d
 	github.com/ddkwork/unison v0.0.0-20250305122932-9fffac22edaf
 	github.com/dop251/goja v0.0.0-20240610225006-393f6d42497b
 	golang.org/x/crypto v0.33.0
@@ -34,6 +34,6 @@ require (
 	golang.org/x/sync v0.12.0 // indirect
 	golang.org/x/sys v0.31.0 // indirect
 	golang.org/x/text v0.23.0 // indirect
-	golang.org/x/tools v0.30.0 // indirect
+	golang.org/x/tools v0.31.0 // indirect
 	gopkg.in/yaml.v3 v3.0.1 // indirect
 )
