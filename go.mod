@@ -3,9 +3,9 @@ module github.com/ddkwork/crypt
 go 1.24.0
 
 require (
-	github.com/ddkwork/app v0.0.0-20250324065822-f12616f947e1
+	github.com/ddkwork/app v0.0.0-20250324092929-55bb7e338ac4
 	github.com/ddkwork/golibrary v0.0.91-0.20250324091236-7773f1c26781
-	github.com/ddkwork/unison v0.0.0-20250320161823-481d583a5ca7
+	github.com/ddkwork/unison v0.0.0-20250324092417-167fd55775cc
 	github.com/dop251/goja v0.0.0-20240610225006-393f6d42497b
 	golang.org/x/crypto v0.36.0
 )
