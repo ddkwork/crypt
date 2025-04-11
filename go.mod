@@ -3,8 +3,8 @@ module github.com/ddkwork/crypt
 go 1.24.0
 
 require (
-	github.com/ddkwork/app v0.0.0-20250324092929-55bb7e338ac4
-	github.com/ddkwork/golibrary v0.0.91-0.20250324091236-7773f1c26781
+	github.com/ddkwork/app v0.0.0-20250328204027-efbf7c5e1f10
+	github.com/ddkwork/golibrary v0.1.2-0.20250410110228-d8e55f9c9eda
 	github.com/ddkwork/unison v0.0.0-20250324092417-167fd55775cc
 	github.com/dop251/goja v0.0.0-20240610225006-393f6d42497b
 	golang.org/x/crypto v0.36.0
@@ -25,11 +25,11 @@ require (
 	github.com/richardwilkes/json v0.3.0 // indirect
 	github.com/yuin/goldmark v1.7.8 // indirect
 	golang.org/x/exp v0.0.0-20250305212735-054e65f0b394 // indirect
-	golang.org/x/image v0.25.0 // indirect
+	golang.org/x/image v0.26.0 // indirect
 	golang.org/x/mod v0.24.0 // indirect
-	golang.org/x/sync v0.12.0 // indirect
+	golang.org/x/sync v0.13.0 // indirect
 	golang.org/x/sys v0.31.0 // indirect
-	golang.org/x/text v0.23.0 // indirect
+	golang.org/x/text v0.24.0 // indirect
 	golang.org/x/tools v0.31.0 // indirect
 	gopkg.in/yaml.v3 v3.0.1 // indirect
 )
