@@ -5,9 +5,9 @@ import (
 )
 
 type (
-	Interface interface {
-		// big calc
-	}
+	Interface any
+	// big calc
+
 	object struct{}
 )
 

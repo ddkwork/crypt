@@ -8,8 +8,8 @@ github.com/cespare/xxhash/v2 v2.3.0 h1:UL815xU9SqsFlibzuggzjXhog7bL6oX9BbNZnL2UF
 github.com/cespare/xxhash/v2 v2.3.0/go.mod h1:VGX0DQ3Q6kWi7AoAeZDth3/j3BFtOZR5XLFGgcrjCOs=
 github.com/ddkwork/app v0.0.0-20250328204027-efbf7c5e1f10 h1:eFvjRqaEFE4XuIMer3ki+jZbmjXdCe3DIXh9+RjH9C8=
 github.com/ddkwork/app v0.0.0-20250328204027-efbf7c5e1f10/go.mod h1:it9aM7f7a3LHCOLhElG6EBIiDAmKUdSmtvMLKIgVqao=
-github.com/ddkwork/golibrary v0.1.2-0.20250410110228-d8e55f9c9eda h1:dP+/IKGPoG0LtgNvAirr1liaQa57yQjRKFq2GJ/CAmY=
-github.com/ddkwork/golibrary v0.1.2-0.20250410110228-d8e55f9c9eda/go.mod h1:ACtaoQlcW1kT94+1qqpiAOuIkxN+CsLpQhcOvmiPsN4=
+github.com/ddkwork/golibrary v0.1.2-0.20250411050210-1497894f0f31 h1:CJ8jCel4Py1RfLh060vDdDTx9ww02u6KMW6uDI1V6L0=
+github.com/ddkwork/golibrary v0.1.2-0.20250411050210-1497894f0f31/go.mod h1:ACtaoQlcW1kT94+1qqpiAOuIkxN+CsLpQhcOvmiPsN4=
 github.com/ddkwork/toolbox v0.0.0-20250320161820-8c695d9534c1 h1:gMVKk3IpNUrLYx816nsjLbs2W7l/SyLTIlWirLO1SIc=
 github.com/ddkwork/toolbox v0.0.0-20250320161820-8c695d9534c1/go.mod h1:hpmwU13lf7KVgYFZhxkiEucI0s7AM1mD6hpWn/5u/mc=
 github.com/ddkwork/unison v0.0.0-20250324092417-167fd55775cc h1:bXzW8us0R7EliDPgE8Q014OHBgpSXsjPnqhAz9+ILTU=

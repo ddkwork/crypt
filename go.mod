@@ -4,7 +4,7 @@ go 1.24.0
 
 require (
 	github.com/ddkwork/app v0.0.0-20250328204027-efbf7c5e1f10
-	github.com/ddkwork/golibrary v0.1.2-0.20250410110228-d8e55f9c9eda
+	github.com/ddkwork/golibrary v0.1.2-0.20250411050210-1497894f0f31
 	github.com/ddkwork/unison v0.0.0-20250324092417-167fd55775cc
 	github.com/dop251/goja v0.0.0-20240610225006-393f6d42497b
 	golang.org/x/crypto v0.36.0
