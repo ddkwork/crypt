@@ -2,6 +2,7 @@ package des
 
 import (
 	"crypto/des"
+
 	"github.com/ddkwork/golibrary/mylog"
 	"github.com/ddkwork/golibrary/stream"
 )

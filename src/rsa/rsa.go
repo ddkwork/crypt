@@ -2,10 +2,10 @@ package rsa
 
 import (
 	"math/big"
+	"slices"
 
 	"github.com/ddkwork/golibrary/mylog"
 	"github.com/ddkwork/golibrary/stream"
-	"slices"
 )
 
 type (

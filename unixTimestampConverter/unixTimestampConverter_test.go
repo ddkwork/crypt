@@ -10,7 +10,7 @@ import (
 
 func TestName(t *testing.T) {
 	o := New()
-	//mylog.Hex("utc", o.UnixTimestamp())
+	// mylog.Hex("utc", o.UnixTimestamp())
 	mylog.Info("utc", o.UnixTimestamp())
 	println(o.FromInteger("1635091635282"))
 	println(o.FromUint32("17CB31A4375"))
