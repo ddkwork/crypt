@@ -5,7 +5,7 @@ go 1.24.1
 require (
 	github.com/ddkwork/golibrary v0.1.2-0.20250427202621-955ed5be8d58
 	github.com/dop251/goja v0.0.0-20240610225006-393f6d42497b
-	golang.org/x/crypto v0.0.0-20210921155107-089bfa567519
+	golang.org/x/crypto v0.35.0
 )
 
 require (
