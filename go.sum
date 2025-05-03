@@ -1,5 +1,5 @@
-github.com/ddkwork/golibrary v0.0.0-20250503022829-ab9f0d645334 h1:qIkuIR1oHnhVTMVrHAoeMm1PtvyqTpUfr5ncuvV/FSo=
-github.com/ddkwork/golibrary v0.0.0-20250503022829-ab9f0d645334/go.mod h1:JkTN5ZkZYptsfII6orURXexoJILmpfgXPT9dEWEEQjQ=
+github.com/ddkwork/golibrary v0.1.2-0.20250427202621-955ed5be8d58 h1:fHyc/lLdtd4FpOrAEc1OnYjd1duPB/updYx4opJTYa4=
+github.com/ddkwork/golibrary v0.1.2-0.20250427202621-955ed5be8d58/go.mod h1:JkTN5ZkZYptsfII6orURXexoJILmpfgXPT9dEWEEQjQ=
 github.com/dlclark/regexp2 v1.11.5 h1:Q/sSnsKerHeCkc/jSTNq1oCm7KiVgUMZRDUoRu0JQZQ=
 github.com/dlclark/regexp2 v1.11.5/go.mod h1:DHkYz0B9wPfa6wondMfaivmHpzrQ3v9q8cnmRbL6yW8=
 github.com/dop251/goja v0.0.0-20240610225006-393f6d42497b h1:fMKDnOAKCGXSZBphY/ilLtu7cmwMnjqE+xJxUkfkpCY=
