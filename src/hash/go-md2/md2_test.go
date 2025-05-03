@@ -28,7 +28,7 @@ func TestGolden(t *testing.T) {
 	for i := range len(golden) {
 		g := golden[i]
 		c := New()
-		for j := 0; j < 3; j++ {
+		for j := range 3 {
 			if j < 2 {
 				io.WriteString(c, g.in)
 			} else {
@@ -71,14 +71,14 @@ func makeBuf() []byte {
 
 func BenchmarkHash1K(b *testing.B) {
 	b.SetBytes(1024)
-	for range b.N {
+	for b.Loop() {
 		bench.Write(buf[:1024])
 	}
 }
 
 func BenchmarkHash8K(b *testing.B) {
 	b.SetBytes(int64(len(buf)))
-	for range b.N {
+	for b.Loop() {
 		bench.Write(buf)
 	}
 }

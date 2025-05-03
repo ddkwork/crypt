@@ -98,7 +98,7 @@ func expand_key(key []byte) (keys [176]byte) {
 		bytes += 4                          // Keep track of how many expanded key bytes we've added
 
 		// We then do the following three times to create the next twelve bytes
-		for j := 0; j < 3; j++ {
+		for range 3 {
 			copy(t[0:], keys[bytes-4:bytes])    // We assign the value of the previous 4 bytes in the expanded key to t
 			xor4(&t, keys[bytes-16:bytes-16+4]) // We exclusive-or t with the four-byte block n bytes before
 			copy(keys[bytes:], t[0:])           // This becomes the next 4 bytes in the expanded key

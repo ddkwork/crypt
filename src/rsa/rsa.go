@@ -5,6 +5,7 @@ import (
 
 	"github.com/ddkwork/golibrary/mylog"
 	"github.com/ddkwork/golibrary/stream"
+	"slices"
 )
 
 type (
@@ -113,12 +114,7 @@ func (o *object) init() {
 }
 
 func fnCheck(src ...string) bool {
-	for _, s := range src {
-		if s == "" {
-			return false
-		}
-	}
-	return true
+	return !slices.Contains(src, "")
 }
 
 func (o *object) Encrypt(src *stream.Buffer, n, e string) (dst *stream.Buffer) {

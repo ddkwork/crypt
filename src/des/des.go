@@ -1,6 +1,7 @@
 package des
 
 import (
+	"crypto/des"
 	"github.com/ddkwork/golibrary/mylog"
 	"github.com/ddkwork/golibrary/stream"
 )
@@ -22,8 +23,8 @@ func Encrypt[T stream.Type](src, key T) (dst *stream.Buffer) {
 			Count: encryptCount,
 		})
 	}()
-	s.CheckDesBlockSize()
-	k.CheckDesBlockSize()
+	CheckDesBlockSize(s)
+	CheckDesBlockSize(k)
 	subKeys := expand(k.Bytes())
 	return stream.NewBuffer(des_encrypt(s.Bytes(), subKeys))
 }
@@ -40,8 +41,8 @@ func Decrypt[T stream.Type](src, key T) (dst *stream.Buffer) {
 			Count: decryptCount,
 		})
 	}()
-	s.CheckDesBlockSize()
-	k.CheckDesBlockSize()
+	CheckDesBlockSize(s)
+	CheckDesBlockSize(k)
 	subKeys := expand(k.Bytes())
 	return stream.NewBuffer(des_decrypt(s.Bytes(), subKeys))
 }
@@ -64,4 +65,10 @@ type Key []byte
 
 func (k Key) String() string { // 让mylog.Struct统一慢慢反射，一劳永逸，这就是接口的力量
 	return string(k)
+}
+
+func CheckDesBlockSize(b *stream.Buffer) {
+	mylog.Check(b.Len())
+	mylog.Check(b.Len() >= des.BlockSize)
+	// mylog.Check(b.Len()%des.BlockSize == 0)
 }

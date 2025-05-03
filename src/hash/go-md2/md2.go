@@ -167,14 +167,14 @@ func block(dig *digest, p []byte) {
 	var t, i, j uint8
 	t = 0
 
-	for i = 0; i < 16; i++ {
+	for i = range 16 {
 		dig.state[i+16] = p[i]
 		dig.state[i+32] = p[i] ^ dig.state[i]
 	}
 
-	for i = 0; i < 18; i++ {
+	for i = range 18 {
 		// fmt.Printf("t before: %d ", t)
-		for j = 0; j < 48; j++ {
+		for j = range 48 {
 			dig.state[j] = dig.state[j] ^ PI_SUBST[t]
 			t = dig.state[j]
 		}
@@ -186,7 +186,7 @@ func block(dig *digest, p []byte) {
 	// fmt.Printf("---------------\n")
 	t = dig.digest[15]
 
-	for i = 0; i < 16; i++ {
+	for i = range 16 {
 		dig.digest[i] = dig.digest[i] ^ PI_SUBST[p[i]^t]
 		t = dig.digest[i]
 		// fmt.Printf("t after: %d\n", t)
