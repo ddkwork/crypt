@@ -3,9 +3,9 @@ module github.com/ddkwork/crypt
 go 1.24.1
 
 require (
-	github.com/ddkwork/golibrary v0.0.0-20250504055225-c75618cc36e5
+	github.com/ddkwork/golibrary v0.1.2-0.20250505042507-fb65953b7361
 	github.com/dop251/goja v0.0.0-20250309171923-bcd7cc6bf64c
-	golang.org/x/crypto v0.37.0
+	golang.org/x/crypto v0.38.0
 )
 
 require (
@@ -14,6 +14,6 @@ require (
 	github.com/google/go-cmp v0.7.0 // indirect
 	github.com/google/pprof v0.0.0-20250501235452-c0086092b71a // indirect
 	golang.org/x/mod v0.24.0 // indirect
-	golang.org/x/sync v0.13.0 // indirect
-	golang.org/x/text v0.24.0 // indirect
+	golang.org/x/sync v0.14.0 // indirect
+	golang.org/x/text v0.25.0 // indirect
 )
