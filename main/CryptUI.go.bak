@@ -73,12 +73,12 @@ func (c *CryptUI) Layout() *unison.Panel {
 				return ""
 			})
 		},
-		UnmarshalRowCells: func(n *ux.Node[CryptTable], rows []ux.CellData) {
+		UnmarshalRowCells: func(n *ux.Node[CryptTable], rows []ux.CellData)CryptTable {
 			name := n.Data.Name.String()
 			if n.Container() {
 				name = n.SumChildren()
 			}
-			n.Data = ux.UnmarshalRow[CryptTable](rows, func(key, value string) (field any) {
+			return  ux.UnmarshalRow[CryptTable](rows, func(key, value string) (field any) {
 				return name
 			})
 		},
