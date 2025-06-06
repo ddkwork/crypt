@@ -1,7 +1,7 @@
 package aes
 
 import (
-	"github.com/ddkwork/golibrary/stream"
+	"github.com/ddkwork/golibrary/std/stream"
 )
 
 func Encrypt[T stream.Type](src, key T) (dst *stream.Buffer) {

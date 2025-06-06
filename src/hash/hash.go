@@ -8,8 +8,8 @@ import (
 	"golang.org/x/crypto/md4"
 
 	"github.com/ddkwork/crypt/src/hash/go-md2"
-	"github.com/ddkwork/golibrary/mylog"
-	"github.com/ddkwork/golibrary/stream"
+	"github.com/ddkwork/golibrary/std/mylog"
+	"github.com/ddkwork/golibrary/std/stream"
 )
 
 const MD2 crypto.Hash = 999

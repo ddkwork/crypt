@@ -3,9 +3,9 @@ package md5
 import (
 	"testing"
 
-	"github.com/ddkwork/golibrary/stream"
+	"github.com/ddkwork/golibrary/std/stream"
 
-	"github.com/ddkwork/golibrary/assert"
+	"github.com/ddkwork/golibrary/std/assert"
 )
 
 func TestMD5(t *testing.T) {

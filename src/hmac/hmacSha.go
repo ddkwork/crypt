@@ -8,7 +8,7 @@ import (
 	"crypto/sha512"
 	"hash"
 
-	"github.com/ddkwork/golibrary/stream"
+	"github.com/ddkwork/golibrary/std/stream"
 )
 
 type (
