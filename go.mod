@@ -13,6 +13,6 @@ require (
 	github.com/go-sourcemap/sourcemap v2.1.4+incompatible // indirect
 	github.com/google/go-cmp v0.7.0 // indirect
 	github.com/google/pprof v0.0.0-20250501235452-c0086092b71a // indirect
-	golang.org/x/mod v0.24.0 // indirect
-	golang.org/x/text v0.25.0 // indirect
+	golang.org/x/mod v0.25.0 // indirect
+	golang.org/x/text v0.26.0 // indirect
 )
