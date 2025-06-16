@@ -1,9 +1,9 @@
 module github.com/ddkwork/crypt
 
-go 1.24.3
+go 1.25rc1
 
 require (
-	github.com/ddkwork/golibrary v0.1.4-0.20250605163732-5443832e2c55
+	github.com/ddkwork/golibrary v0.1.4-0.20250616120223-0a6e456032ab
 	github.com/dop251/goja v0.0.0-20250309171923-bcd7cc6bf64c
 	golang.org/x/crypto v0.38.0
 )
